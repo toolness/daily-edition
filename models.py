@@ -1,7 +1,9 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 class Person(models.Model):
     name = models.CharField(max_length=30)
+    followers = models.ManyToManyField(User, through='OrderedFollow')
 
     class Meta:
         verbose_name_plural = 'people'
@@ -40,3 +42,8 @@ class Site(models.Model):
 
     def __unicode__(self):
         return self.title or self.url
+
+class OrderedFollow(models.Model):
+    user = models.ForeignKey(User)
+    person = models.ForeignKey(Person)
+    priority = models.IntegerField()
