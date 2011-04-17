@@ -34,3 +34,4 @@ class SimpleTest(TestCase):
         f = OrderedFollow(user=john, person=chris, priority=1)
         f.save()
         self.assertEqual(chris.followers.all()[0], john)
+        self.assertEqual(john.influencers.all()[0], chris)

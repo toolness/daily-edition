@@ -3,7 +3,8 @@ from django.db import models
 
 class Person(models.Model):
     name = models.CharField(max_length=30)
-    followers = models.ManyToManyField(User, through='OrderedFollow')
+    followers = models.ManyToManyField(User, through='OrderedFollow',
+                                       related_name='influencers')
 
     class Meta:
         verbose_name_plural = 'people'
