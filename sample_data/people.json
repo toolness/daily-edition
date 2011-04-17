@@ -1,0 +1,438 @@
+[
+  {
+    "sites": {
+      "12299": {
+        "feed": "http://chrisblizzard.blip.tv/rss", 
+        "url": "http://chrisblizzard.blip.tv", 
+        "type": "feed", 
+        "title": "Christopher Blizzard"
+      }, 
+      "12": {
+        "feed": "http://api.flickr.com/services/feeds/photos_public.gne?id=76418115@N00&lang=en-us&format=rss_200", 
+        "url": "http://www.flickr.com/photos/christopherblizzard/", 
+        "type": "flickr", 
+        "title": "Uploads from Christopher Blizzard"
+      }, 
+      "51": {
+        "feed": null, 
+        "url": "http://www.linkedin.com/in/christopherblizzard", 
+        "type": "linkedin", 
+        "title": null
+      }, 
+      "31": {
+        "feed": "http://twitter.com/statuses/user_timeline/12811302.atom", 
+        "url": "http://twitter.com/chrisblizzard", 
+        "type": "twitter", 
+        "title": "Twitter / chrisblizzard"
+      }, 
+      "6507": {
+        "feed": "http://identi.ca/blizzard/rss", 
+        "url": "http://identi.ca/blizzard", 
+        "type": "identica", 
+        "title": "blizzard timeline"
+      }, 
+      "11862": {
+        "feed": "http://feeds.delicious.com/v2/rss/christopherblizzard?count=15", 
+        "url": "http://delicious.com/christopherblizzard", 
+        "type": "delicious", 
+        "title": "Delicious/christopherblizzard"
+      }, 
+      "12217": {
+        "feed": "http://vimeo.com/user1345996/videos/rss", 
+        "url": "http://vimeo.com/user1345996/videos/uploaded", 
+        "type": "vimeo", 
+        "title": "Vimeo / Christopher Blizzard's uploaded videos"
+      }, 
+      "2": {
+        "feed": "http://www.0xdeadbeef.com/weblog/?feed=rss2", 
+        "url": "http://www.0xdeadbeef.com/weblog", 
+        "type": "feed", 
+        "title": "Christopher Blizzard"
+      }, 
+      "11080": {
+        "feed": "http://www.youtube.com/ut_rss?type=username&arg=christopherblizzard", 
+        "url": "http://www.youtube.com/profile_videos?user=christopherblizzard", 
+        "type": "youtube", 
+        "title": "Uploads by christopherblizzard"
+      }, 
+      "5928": {
+        "feed": "http://twitter.com/statuses/user_timeline/15280734.atom", 
+        "url": "http://twitter.com/whoisi", 
+        "type": "twitter", 
+        "title": "Twitter / whoisi"
+      }
+    }, 
+    "name": "Christopher Blizzard", 
+    "aliases": [
+      "@fisl2008", 
+      "@guadec2008", 
+      "@moz08", 
+      "@oscon2008", 
+      "Chris Blizzard", 
+      "freenode:blizzard", 
+      "gnome:blizzard", 
+      "mozilla:blizzard"
+    ]
+  }, 
+  {
+    "aliases": [], 
+    "sites": {}, 
+    "name": ""
+  }, 
+  {
+    "aliases": [], 
+    "sites": {}, 
+    "name": ""
+  }, 
+  {
+    "aliases": [
+      "@moz08", 
+      "johnath"
+    ], 
+    "sites": {
+      "3": {
+        "feed": "http://blog.johnath.com/index.php/feed/atom/", 
+        "url": "http://blog.johnath.com", 
+        "type": "feed", 
+        "title": "meandering wildly"
+      }, 
+      "170": {
+        "feed": "http://twitter.com/statuses/user_timeline/6140482.atom", 
+        "url": "http://twitter.com/johnath", 
+        "type": "twitter", 
+        "title": "Twitter / johnath"
+      }, 
+      "13": {
+        "feed": "http://api.flickr.com/services/feeds/photos_public.gne?id=23586883@N00&lang=en-us&format=rss_200", 
+        "url": "http://www.flickr.com/photos/johnath/", 
+        "type": "flickr", 
+        "title": "Uploads from Johnath"
+      }, 
+      "7195": {
+        "feed": null, 
+        "url": "http://www.linkedin.com/in/johnath", 
+        "type": "linkedin", 
+        "title": null
+      }, 
+      "7196": {
+        "feed": "http://hewitt.controlezvous.ca/johnath/rss", 
+        "url": "http://identi.ca/johnath", 
+        "type": "identica", 
+        "title": "johnath"
+      }
+    }, 
+    "name": "Johnathan Nightingale"
+  }, 
+  {
+    "sites": {
+      "61": {
+        "feed": "http://api.flickr.com/services/feeds/photos_public.gne?id=99971095@N00&lang=en-us&format=rss_200", 
+        "url": "http://www.flickr.com/photos/shvmoz/", 
+        "type": "flickr", 
+        "title": "Uploads from shvmoz"
+      }, 
+      "643": {
+        "feed": "http://twitter.com/statuses/user_timeline/2319611.atom", 
+        "url": "http://twitter.com/shaver", 
+        "type": "twitter", 
+        "title": "Twitter / shaver"
+      }, 
+      "564": {
+        "feed": null, 
+        "url": "http://www.linkedin.com/pub/0/252/5a2", 
+        "type": "linkedin", 
+        "title": null
+      }, 
+      "4": {
+        "feed": "http://shaver.off.net/diary/feed/atom/", 
+        "url": "http://shaver.off.net/diary", 
+        "type": "feed", 
+        "title": "shaver"
+      }
+    }, 
+    "name": "Mike Shaver", 
+    "aliases": [
+      "@moz08", 
+      "linuxnet:shaver", 
+      "mozilla:shaver"
+    ]
+  }, 
+  {
+    "sites": {
+      "24": {
+        "feed": "http://api.flickr.com/services/feeds/photos_public.gne?id=36894430@N00&lang=en-us&format=rss_200", 
+        "url": "http://www.flickr.com/photos/joeshaw/", 
+        "type": "flickr", 
+        "title": "Uploads from joeshaw"
+      }, 
+      "6544": {
+        "feed": "http://identi.ca/joe/rss", 
+        "url": "http://identi.ca/joe", 
+        "type": "identica", 
+        "title": "joe timeline"
+      }, 
+      "762": {
+        "feed": "http://shawblog.org/s/b/rss.xml", 
+        "url": "http://shawblog.org/s/b/b.html", 
+        "type": "feed", 
+        "title": "My Blog"
+      }, 
+      "565": {
+        "feed": null, 
+        "url": "http://www.linkedin.com/in/joeshaw", 
+        "type": "linkedin", 
+        "title": null
+      }, 
+      "5": {
+        "feed": "http://joeshaw.org/feed/atom", 
+        "url": "http://joeshaw.org", 
+        "type": "feed", 
+        "title": "joe shaw"
+      }, 
+      "11905": {
+        "feed": "http://github.com/joeshaw.atom", 
+        "url": "http://github.com", 
+        "type": "feed", 
+        "title": "joeshaw's Activity"
+      }, 
+      "12354": {
+        "feed": "http://feeds.delicious.com/v2/rss/joe.shaw?count=15", 
+        "url": "http://delicious.com/joe.shaw", 
+        "type": "delicious", 
+        "title": "Delicious/joe.shaw"
+      }, 
+      "85": {
+        "feed": "http://twitter.com/statuses/user_timeline/5344992.atom", 
+        "url": "http://twitter.com/joeshaw", 
+        "type": "twitter", 
+        "title": "Twitter / joeshaw"
+      }
+    }, 
+    "name": "Joe Shaw", 
+    "aliases": [
+      "beagle:joe", 
+      "gnome:joe", 
+      "joeshaw", 
+      "linuxnet:joe", 
+      "number:6"
+    ]
+  }, 
+  {
+    "aliases": [
+      "@moz08", 
+      "mozilla:asa"
+    ], 
+    "sites": {
+      "12561": {
+        "feed": "http://twitter.com/statuses/user_timeline/10058662.rss", 
+        "url": "http://twitter.com/asadotzler", 
+        "type": "twitter", 
+        "title": "Twitter / asadotzler"
+      }, 
+      "8": {
+        "feed": "http://weblogs.mozillazine.org/asa/index.rdf", 
+        "url": "http://weblogs.mozillazine.org/asa/", 
+        "type": "feed", 
+        "title": "Asa Dotzler: Firefox and more"
+      }, 
+      "2413": {
+        "feed": "http://api.flickr.com/services/feeds/photos_public.gne?id=70915599@N00&lang=en-us&format=rss_200", 
+        "url": "http://www.flickr.com/photos/asadotzler/", 
+        "type": "flickr", 
+        "title": "Uploads from asadotzler"
+      }, 
+      "484": {
+        "feed": null, 
+        "url": "http://www.linkedin.com/pub/0/a3/bb4", 
+        "type": "linkedin", 
+        "title": null
+      }
+    }, 
+    "name": "Asa Dotzler"
+  }, 
+  {
+    "sites": {
+      "6576": {
+        "feed": "http://identi.ca/vladimir/rss", 
+        "url": "http://identi.ca/vladimir", 
+        "type": "identica", 
+        "title": "vladimir timeline"
+      }, 
+      "583": {
+        "feed": null, 
+        "url": "http://www.linkedin.com/pub/1/b86/6b7", 
+        "type": "linkedin", 
+        "title": null
+      }, 
+      "9": {
+        "feed": "http://blog.vlad1.com/feed/atom/", 
+        "url": "http://blog.vlad1.com", 
+        "type": "feed", 
+        "title": "Vladimir Vuki\u0107evi\u0107"
+      }, 
+      "12273": {
+        "feed": "http://twitter.com/statuses/user_timeline/14174812.atom", 
+        "url": "http://twitter.com/vvuk", 
+        "type": "twitter", 
+        "title": "Twitter / vvuk"
+      }, 
+      "84": {
+        "feed": "http://api.flickr.com/services/feeds/photos_public.gne?id=12435902@N03&lang=en-us&format=rss_200", 
+        "url": "http://www.flickr.com/photos/vladphone/", 
+        "type": "flickr", 
+        "title": "Uploads from Vlad's Phone"
+      }, 
+      "14": {
+        "feed": "http://api.flickr.com/services/feeds/photos_public.gne?id=92311327@N00&lang=en-us&format=rss_200", 
+        "url": "http://www.flickr.com/photos/vvuk/", 
+        "type": "flickr", 
+        "title": "Uploads from vvuk"
+      }
+    }, 
+    "name": "Vladimir Vuki\u0107evi\u0107", 
+    "aliases": [
+      "@moz08", 
+      "Vlad Vukicevic", 
+      "linuxnet:vlad", 
+      "mozilla:vlad"
+    ]
+  }, 
+  {
+    "sites": {
+      "10": {
+        "feed": "http://weblogs.mozillazine.org/roc/atom.xml", 
+        "url": "http://weblogs.mozillazine.org/roc/", 
+        "type": "feed", 
+        "title": "Well, I'm Back"
+      }, 
+      "554": {
+        "feed": null, 
+        "url": "http://www.linkedin.com/pub/2/575/358", 
+        "type": "linkedin", 
+        "title": null
+      }
+    }, 
+    "name": "Robert O'Callahan", 
+    "aliases": [
+      "@moz08", 
+      "mozilla:roc"
+    ]
+  }, 
+  {
+    "sites": {
+      "67": {
+        "feed": "http://www.ideasuite.com/~shona/weblog/?feed=atom", 
+        "url": "http://www.ideasuite.com/~shona/weblog", 
+        "type": "feed", 
+        "title": "snowing blizzards"
+      }, 
+      "821": {
+        "feed": "http://twitter.com/statuses/user_timeline/14946214.atom", 
+        "url": "http://twitter.com/shonab", 
+        "type": "twitter", 
+        "title": "Twitter / shonab"
+      }, 
+      "6736": {
+        "feed": "http://identi.ca/shona/rss", 
+        "url": "http://identi.ca/shona", 
+        "type": "identica", 
+        "title": "shona timeline"
+      }, 
+      "16": {
+        "feed": "http://api.flickr.com/services/feeds/photos_public.gne?id=12452321@N00&lang=en-us&format=rss_200", 
+        "url": "http://www.flickr.com/photos/12452321@N00/", 
+        "type": "flickr", 
+        "title": "Uploads from shonab"
+      }
+    }, 
+    "name": "Shona Blizzard-Derr", 
+    "aliases": []
+  }, 
+  {
+    "sites": {
+      "25": {
+        "feed": "http://blogs.cnet.com/8300-13505_1-16.xml", 
+        "url": "http://blogs.cnet.com/8300-13505_1-16.html", 
+        "type": "feed", 
+        "title": null
+      }, 
+      "449": {
+        "feed": null, 
+        "url": "http://www.linkedin.com/in/mattasay", 
+        "type": "linkedin", 
+        "title": null
+      }, 
+      "425": {
+        "feed": "http://asay.blogspot.com/feeds/posts/default", 
+        "url": "http://asay.blogspot.com/", 
+        "type": "feed", 
+        "title": "AC/OS"
+      }, 
+      "10594": {
+        "feed": "http://twitter.com/statuses/user_timeline/7617702.atom", 
+        "url": "http://twitter.com/mjasay", 
+        "type": "twitter", 
+        "title": "Twitter / mjasay"
+      }, 
+      "10593": {
+        "feed": "http://twitter.com/statuses/user_timeline/15771361.atom", 
+        "url": "http://twitter.com/asay", 
+        "type": "twitter", 
+        "title": "Twitter / asay"
+      }
+    }, 
+    "name": "Matt Asay", 
+    "aliases": []
+  }, 
+  {
+    "aliases": [
+      "Joichi Ito", 
+      "joi"
+    ], 
+    "sites": {
+      "26": {
+        "feed": "http://joi.ito.com/atom.xml", 
+        "url": "http://joi.ito.com/weblog/", 
+        "type": "feed", 
+        "title": "Joi Ito's Web"
+      }, 
+      "27": {
+        "feed": "http://api.flickr.com/services/feeds/photos_public.gne?id=35034362831@N01&lang=en-us&format=rss_200", 
+        "url": "http://www.flickr.com/photos/joi/", 
+        "type": "flickr", 
+        "title": "Uploads from Joi"
+      }, 
+      "28": {
+        "feed": "http://twitter.com/statuses/user_timeline/691353.atom", 
+        "url": "http://twitter.com/Joi", 
+        "type": "twitter", 
+        "title": "Twitter / Joi"
+      }, 
+      "11077": {
+        "feed": "http://picasaweb.google.com/data/feed/api/user/joiito?kind=photo&thumbsize=64", 
+        "url": "http://picasaweb.google.com/joiito", 
+        "type": "picasa", 
+        "title": "joiito"
+      }, 
+      "11535": {
+        "feed": "http://identi.ca/api/statuses/user_timeline/joi.rss", 
+        "url": "http://identi.ca/joi", 
+        "type": "identica", 
+        "title": "joi timeline"
+      }, 
+      "11540": {
+        "feed": "http://vimeo.com/user927030/videos/rss", 
+        "url": "http://vimeo.com/user927030/videos/uploaded", 
+        "type": "vimeo", 
+        "title": "Vimeo / Joichi Ito's uploaded videos"
+      }, 
+      "93": {
+        "feed": null, 
+        "url": "http://www.linkedin.com/in/joiito", 
+        "type": "linkedin", 
+        "title": null
+      }
+    }, 
+    "name": "Joi Ito"
+  }
+]
