@@ -164,12 +164,16 @@ def filter_articles(names, articles, issues,
 
 def publish_edition(people,
                     output_dir='',
+                    cache_dir='',
                     update_urls=False,
                     update_articles=False,
                     authors_filename=AUTHORS_FILENAME,
                     dry_run=False):
     if update_urls:
         update_articles = True
+
+    def cachepath(filename):
+        return os.path.join(cache_dir, filename)
 
     names = [line.strip()
              for line in open(authors_filename, 'r').readlines()
@@ -213,24 +217,24 @@ def publish_edition(people,
                 person_feeds.append(site['feed'])
         feeds[person['name']] = person_feeds
 
-    urls = load(URLS_FILENAME, {})
+    urls = load(cachepath(URLS_FILENAME), {})
 
     if update_urls:
         refresh_urls(feeds=feeds, urls=urls)
         if not dry_run:
-            save(urls, URLS_FILENAME)
+            save(urls, cachepath(URLS_FILENAME))
 
-    articles = load(ARTICLES_FILENAME, {})
+    articles = load(cachepath(ARTICLES_FILENAME), {})
 
     if update_articles:
         refresh_articles(articles=articles,
                          feeds=feeds,
                          urls=urls)
         if not dry_run:
-            save(articles, ARTICLES_FILENAME)
+            save(articles, cachepath(ARTICLES_FILENAME))
 
-    issues = load(ISSUES_FILENAME, {'urls': {},
-                                    'pub_dates': []})
+    issues = load(cachepath(ISSUES_FILENAME), {'urls': {},
+                                               'pub_dates': []})
 
     filtered_articles = filter_articles(names=names,
                                         articles=articles,
@@ -242,7 +246,7 @@ def publish_edition(people,
         for article in filtered_articles[author]:
             issues['urls'][article['url']] = issue_id
     if not dry_run:
-        save(issues, ISSUES_FILENAME)
+        save(issues, cachepath(ISSUES_FILENAME))
 
     if not dry_run:
         blob = {'id': issue_id,
@@ -282,7 +286,12 @@ parser_options = {
     dict(dest='authors_filename',
          help='authors filename (default is %s)' % repr(AUTHORS_FILENAME),
          default=AUTHORS_FILENAME),
-         
+
+    ('-c', '--cache-dir',):
+    dict(dest='cache_dir',
+         help='directory to store cached data in',
+         default=''),
+
     ('-o', '--output-dir',):
     dict(dest='output_dir',
          help='directory to output issue JSON files to',
