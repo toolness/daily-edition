@@ -163,6 +163,7 @@ def filter_articles(names, articles, issues,
     return normalize(filtered_articles)
 
 def publish_edition(people,
+                    output_dir='',
                     update_urls=False,
                     update_articles=False,
                     authors_filename=AUTHORS_FILENAME,
@@ -249,10 +250,14 @@ def publish_edition(people,
                 'articles': filtered_articles,
                 'pubDate': to_date_tuple(date.today())}
 
-        json.dump(blob, open(JSON_FILENAME, 'w'))
-        json.dump(blob, open(ISSUE_FILENAME % (issue_id+1), 'w'))
+        json_filename = os.path.join(output_dir, JSON_FILENAME)
+        issue_filename = os.path.join(output_dir,
+                                      ISSUE_FILENAME % (issue_id+1))
+        json.dump(blob, open(json_filename, 'w'))
+        json.dump(blob, open(issue_filename, 'w'))
 
-        stdout.write('wrote %s (issue #%d).\n' % (JSON_FILENAME, issue_id+1))
+        stdout.write('wrote %s\n' % json_filename)
+        stdout.write('wrote %s\n' % issue_filename)
 
 parser_options = {
     ('-f', '--refresh-feeds',): 
@@ -276,5 +281,10 @@ parser_options = {
     ('-a', '--authors-file',):
     dict(dest='authors_filename',
          help='authors filename (default is %s)' % repr(AUTHORS_FILENAME),
-         default=AUTHORS_FILENAME)
+         default=AUTHORS_FILENAME),
+         
+    ('-o', '--output-dir',):
+    dict(dest='output_dir',
+         help='directory to output issue JSON files to',
+         default='')
 }
