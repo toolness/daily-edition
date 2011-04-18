@@ -61,3 +61,4 @@ class Article(models.Model):
 class Issue(models.Model):
     user = models.ForeignKey(User)
     articles = models.ManyToManyField(Article)
+    published = models.DateTimeField()
