@@ -1,0 +1,102 @@
+body {
+    font-family: Arial, Helvetica;
+    font-size: 9pt;
+    line-height: 1.4em;
+    background: #f0f0f0;
+}
+
+/* Rule to fix quirks-mode inheritance behavior */
+table, caption {
+  font-size: inherit;
+  font-weight: inherit;
+  font-style: inherit;
+  font-variant: inherit;
+}
+
+table {
+  border-collapse:collapse;
+  width: 100%
+}
+
+table, tr, td, th {
+  border: 1px gray solid;
+  padding: 0.5em;
+}
+
+#container {
+    width: 40em;
+    margin: 0 auto;
+    display: none;
+}
+
+#templates {
+    display: none;
+}
+
+#header {
+    border-bottom: 1px dotted gray;
+    font-variant: small-caps;
+    text-transform: lowercase;
+    margin-bottom: 0.5em;
+}
+
+#header #static {
+    display: inline;
+}
+
+#header #info {
+    float: right;
+}
+
+#header #info #issue-no, #header #info #pub-date {
+    color: gray;
+}
+
+#error {
+    display: none;
+}
+
+.article {
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+.article .author {
+    font-size: 10pt;
+    display: inline;
+    font-weight: bold;
+}
+
+.article .date {
+    font-size: 10pt;
+    display: inline;
+    color: gray;
+}
+
+/* Get rid of annoying <br/>'s at the beginning of articles. */
+.article .content br {
+    display: none;
+}
+
+.article .content a {
+    color: black;
+}
+
+a:hover {
+    background: yellow;
+}
+
+.article .content img {
+    display: none;
+}
+
+.article .title {
+    font-size: 12pt;
+    font-weight: bold;
+    line-height: 1.4em;
+}
+
+.article .title .link {
+    text-decoration: none;
+    color: black;
+}
