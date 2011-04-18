@@ -40,6 +40,7 @@ class Site(models.Model):
     url = models.URLField()
     feed = models.URLField(null=True)
     person = models.ForeignKey(Person, related_name='sites')
+    last_update = models.DateTimeField(null=True)
 
     def __unicode__(self):
         return self.title or self.url
@@ -48,3 +49,15 @@ class OrderedFollow(models.Model):
     user = models.ForeignKey(User)
     person = models.ForeignKey(Person)
     priority = models.IntegerField()
+
+class Article(models.Model):
+    url = models.URLField(unique=True)
+    site = models.ForeignKey(Site, related_name='articles')
+    title = models.CharField(max_length=40)
+    body = models.TextField()
+    published = models.DateTimeField(null=True)
+    received = models.DateTimeField(null=True)
+
+class Issue(models.Model):
+    user = models.ForeignKey(User)
+    articles = models.ManyToManyField(Article)
