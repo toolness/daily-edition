@@ -36,7 +36,7 @@ class Site(models.Model):
     ]
 
     kind = models.CharField(max_length=10, choices=KIND_CHOICES)
-    title = models.CharField(max_length=30, null=True)
+    title = models.CharField(max_length=60, null=True)
     url = models.URLField()
     feed = models.URLField(null=True)
     person = models.ForeignKey(Person, related_name='sites')
