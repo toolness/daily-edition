@@ -1,0 +1,30 @@
+<html>
+<head>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+  <title>Publish A New Daily Edition</title>
+</head>
+<body>
+<div id="container" style="display: block;">
+  <div id="header">
+    <div id="static">Publish A New Daily Edition.</div>
+  </div>
+  <div id="articles">
+    <div class="article">
+      <div class="content">
+
+<form method="POST">
+{% csrf_token %}
+<p>
+<input type="checkbox" name="refresh-feeds"/>Refresh Feeds</input>
+</p>
+<input type="submit" value="Publish New Daily Edition"/>
+</form>
+<div style="background: gray;">
+{{ response }}
+</div>
+
+      </div>
+    </div>
+  </div>
+</div>
+</html>
