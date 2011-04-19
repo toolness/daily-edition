@@ -2,7 +2,7 @@ from django.contrib.auth.models import User
 from django.db import models
 
 class Person(models.Model):
-    name = models.CharField(max_length=30)
+    name = models.CharField(max_length=100)
     followers = models.ManyToManyField(User, through='OrderedFollow',
                                        related_name='influencers')
 
@@ -13,7 +13,7 @@ class Person(models.Model):
         return self.name
 
 class Alias(models.Model):
-    name = models.CharField(max_length=30)
+    name = models.CharField(max_length=100)
     person = models.ForeignKey(Person, related_name='aliases')
 
     class Meta:
@@ -36,9 +36,9 @@ class Site(models.Model):
     ]
 
     kind = models.CharField(max_length=10, choices=KIND_CHOICES)
-    title = models.CharField(max_length=60, null=True)
-    url = models.URLField()
-    feed = models.URLField(null=True)
+    title = models.CharField(max_length=255, null=True)
+    url = models.URLField(max_length=1000)
+    feed = models.URLField(null=True, max_length=1000)
     person = models.ForeignKey(Person, related_name='sites')
     last_update = models.DateTimeField(null=True)
 
