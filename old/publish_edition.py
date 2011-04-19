@@ -191,6 +191,7 @@ def publish_edition(people,
                     update_urls=False,
                     update_articles=False,
                     authors_filename=AUTHORS_FILENAME,
+                    min_article_word_count=50,
                     dry_run=False):
     if update_urls:
         update_articles = True
@@ -259,9 +260,12 @@ def publish_edition(people,
     issues = load(cachepath(ISSUES_FILENAME), {'urls': {},
                                                'pub_dates': []})
 
-    filtered_articles = filter_articles(names=names,
-                                        articles=articles,
-                                        issues=issues)
+    filtered_articles = filter_articles(
+        names=names,
+        articles=articles,
+        issues=issues,
+        min_article_word_count=min_article_word_count
+        )
 
     issue_id = len(issues['pub_dates'])
     issues['pub_dates'].append(datetime.now())
