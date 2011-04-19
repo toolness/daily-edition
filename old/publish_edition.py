@@ -2,7 +2,9 @@ from sys import stdout
 import os
 import logging
 import traceback
+import Queue
 import cPickle as pickle
+from threading import Thread
 from datetime import date, datetime, timedelta
 
 try:
@@ -38,17 +40,34 @@ def to_date_tuple(dt):
     return (dt.year, dt.month, dt.day)
 
 def refresh_urls(feeds, urls):
-    ucache = UrlCache(urls)
-    for feed_urls in feeds.values():
-        for url in feed_urls:
+    def worker():
+        while True:
+            url = queue.get()
             try:
-                ucache.refresh(url)
+                ucache.refresh(url, stdout)
             except Exception, e:
                 msg = "Error fetching %s:\n%s" % (
                   url,
                   traceback.format_exc(e)
                   )
                 logging.error(msg)
+            finally:
+                queue.task_done()
+
+    NUM_WORKER_THREADS = 5
+
+    queue = Queue.Queue()
+    for i in range(NUM_WORKER_THREADS):
+        t = Thread(target=worker)
+        t.daemon = True
+        t.start()
+    
+    ucache = UrlCache(urls)
+    for feed_urls in feeds.values():
+        for url in feed_urls:
+            queue.put(url)
+
+    queue.join()
 
 def refresh_articles(articles, feeds, urls):
     for author, feed_urls in feeds.items():
