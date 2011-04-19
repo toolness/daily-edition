@@ -44,7 +44,11 @@ def refresh_urls(feeds, urls):
             try:
                 ucache.refresh(url)
             except Exception, e:
-                logging.error(traceback.format_exc(e))
+                msg = "Error fetching %s:\n%s" % (
+                  url,
+                  traceback.format_exc(e)
+                  )
+                logging.error(msg)
 
 def refresh_articles(articles, feeds, urls):
     for author, feed_urls in feeds.items():
