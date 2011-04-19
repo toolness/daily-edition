@@ -8,7 +8,6 @@ from daily_edition.old.publish_edition import parser_options, \
 from daily_edition.models import Person, Site, Alias
 
 class Command(BaseCommand):
-    args = '<json_file>'
     help = 'Publishes a Daily Edition.'
     option_list = list(BaseCommand.option_list)
     
