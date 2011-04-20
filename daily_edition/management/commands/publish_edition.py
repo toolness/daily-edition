@@ -2,9 +2,11 @@ from optparse import make_option
 
 from django.conf import settings
 from django.core.management.base import BaseCommand, CommandError
-from daily_edition.old.publish_edition import parser_options, \
-                                              publish_edition, \
-                                              set_stdout
+from daily_edition.publish_edition import parser_options, \
+                                          publish_edition, \
+                                          set_stdout, \
+                                          get_settings_options
+
 from daily_edition.models import Person, Site, Alias
 
 class Command(BaseCommand):
@@ -30,10 +32,6 @@ class Command(BaseCommand):
         # So, for now we just have to have settings override the
         # command-line options.
 
-        if getattr(settings, 'DAILY_EDITION', None):
-            de_settings = settings.DAILY_EDITION
-            for name in kwargnames:
-                if name in de_settings:
-                    kwargs[name] = de_settings[name]
+        kwargs.update(get_settings_options(settings, include_defaults=False))
         set_stdout(self.stdout)
         publish_edition(Person, **kwargs)

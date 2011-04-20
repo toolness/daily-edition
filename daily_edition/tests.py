@@ -38,4 +38,4 @@ class SimpleTest(TestCase):
 
 # Run more tests.
 
-from daily_edition.old.tests import *
+from test_publish_edition import *

@@ -324,3 +324,16 @@ parser_options = {
          help='directory to output issue JSON files to',
          default='')
 }
+
+def get_settings_options(settings, include_defaults=True):
+    items = [(o['dest'], o['default'])
+             for o in parser_options.values()]
+    options = {}
+    if getattr(settings, 'DAILY_EDITION', None):
+        de_settings = settings.DAILY_EDITION
+        for name, default in items:
+            if name in de_settings:
+                options[name] = de_settings[name]
+            elif include_defaults:
+                options[name] = default
+    return options
