@@ -1,19 +1,15 @@
-<html>
-<head>
-  <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-  <title>Publish A New Daily Edition</title>
-  <link rel="stylesheet" type="text/css" media="all"
-        href="{{ STATIC_URL }}daily_edition/daily-edition.css" />
-</head>
-<body>
-<div id="container" style="display: block;">
-  <div id="header">
-    <div id="static">Publish A New Daily Edition.</div>
-  </div>
-  <div id="articles">
-    <div class="article">
-      <div class="content">
-
+{% extends "base.html" %}
+{% block head %}
+<style>
+div.response {
+  padding-top: 1em;
+  font-family: Monaco, "Lucida Console", monospace;
+}
+</style>
+{% endblock %}
+{% block title %}Publish A New Daily Edition{% endblock %}
+{% block header %}Publish A New Daily Edition.{% endblock %}
+{% block content %}
 <form method="POST">
 {% csrf_token %}
 <p>
@@ -21,13 +17,7 @@
 </p>
 <input type="submit" value="Publish New Daily Edition"/>
 </form>
-<div style="background: gray;">
+<div class="response">
 {{ response }}
 </div>
-
-      </div>
-    </div>
-  </div>
-</div>
-</body>
-</html>
+{% endblock %}

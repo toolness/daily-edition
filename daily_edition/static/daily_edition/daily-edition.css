@@ -26,7 +26,6 @@ table, tr, td, th {
 #container {
     width: 40em;
     margin: 0 auto;
-    display: none;
 }
 
 #templates {

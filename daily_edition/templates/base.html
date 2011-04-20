@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" media="all"
+        href="{{ STATIC_URL }}daily_edition/daily-edition.css" />
+  {% block head %}{% endblock %}
+  <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+<div id="container">
+  <div id="header">
+    <div id="static">{% block header %}{% endblock %}</div>
+    <div id="info">
+      {% block info %}{% endblock %}
+    </div>
+  </div>
+  <div id="articles">
+    <div class="article"> 
+      <div class="content">{% block content %}{% endblock %}</div>
+    </div>
+  </div>
+  <div id="error">Alas, an error occurred.</div>
+</div>
+<div id="templates">
+  <div class="article">
+    <div class="title"><a class="link"></a></div>
+    <div class="author"></div>
+    <div class="date"></div>
+    <div class="content"></div>
+  </div>
+</div>
+<script src="{{ STATIC_URL }}daily_edition/jquery.js"></script>
+{% block scripts %}{% endblock %}
+</body>
+</html>
