@@ -12,6 +12,6 @@ class SiteInline(admin.TabularInline):
 
 class PersonAdmin(admin.ModelAdmin):
     search_fields = ['name']
-    inlines = [AliasInline, SiteInline]
+    inlines = [SiteInline, AliasInline]
 
 admin.site.register(Person, PersonAdmin)
