@@ -19,6 +19,27 @@ def install_sample_data():
     cmd = whoisi_import.Command()
     cmd.handle(path('sample_data', 'people.json'), verbosity='0')
 
+def test_sites_short_title_works(self):
+    """
+    >>> install_sample_data()
+    >>> p = Person.objects.get(name='Christopher Blizzard')
+    >>> linkedin = p.sites.get(kind='linkedin')
+    >>> print linkedin.title
+    None
+    >>> print linkedin.short_title
+    LinkedIn
+    >>> blog = p.sites.get(url='http://www.0xdeadbeef.com/weblog')
+    >>> print blog.title
+    Christopher Blizzard
+    >>> print blog.short_title
+    0xdeadbeef.com
+    >>> bliptv = p.sites.get(url='http://chrisblizzard.blip.tv')
+    >>> print bliptv.short_title
+    chrisblizzard.blip.tv
+    """
+    
+    pass
+
 class SimpleTest(TestCase):
     def test_sites_relate_backward_to_person(self):
         install_sample_data()

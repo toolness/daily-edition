@@ -42,7 +42,7 @@ ul.sites {
 
 ul.sites li {
   display: inline;
-  padding-left: 1em;
+  padding-left: 0.5em;
 }
 
 ul.sites li a {
@@ -64,7 +64,7 @@ ul.sites li a {
       <div class="name known"><a href="{% url admin:daily_edition_person_change person.info.id %}">{{ person.name }}</a></div>
       <ul class="sites">
         {% for site in person.info.sites.all %}
-          <li><a href="{{ site.url }}" target="_new">{{ site.title }}</a></li>
+          <li><a href="{{ site.url }}" target="_new">{{ site.short_title }}</a></li>
         {% endfor %}
       </ul>
     {% else %}

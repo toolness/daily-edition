@@ -1,3 +1,5 @@
+from urlparse import urlparse
+
 from django.contrib.auth.models import User
 from django.db import models
 
@@ -41,6 +43,16 @@ class Site(models.Model):
     feed = models.URLField(null=True, blank=True, max_length=1000)
     person = models.ForeignKey(Person, related_name='sites')
     last_update = models.DateTimeField(null=True, blank=True)
+
+    @property
+    def short_title(self):
+        if self.kind == 'feed':
+            hostname = urlparse(self.url).hostname
+            if hostname.startswith('www.'):
+                hostname = hostname[4:]
+            return hostname
+        else:
+            return self.get_kind_display()
 
     def __unicode__(self):
         return self.title or self.url
