@@ -39,20 +39,6 @@ def save(obj, filename):
 def to_date_tuple(dt):
     return (dt.year, dt.month, dt.day)
 
-def backup_file(filename):
-    def mkfilename(i):
-        return '%s.backup.%d' % (filename, i)
-
-    i = 1
-    backup_filename = mkfilename(i)
-    while os.path.exists(backup_filename):
-        i += 1
-        backup_filename = mkfilename(i)
-
-    contents = open(filename).read()
-    open(backup_filename, 'w').write(contents)
-    return backup_filename
-
 def refresh_urls(feeds, urls):
     def worker():
         while True:
@@ -219,7 +205,7 @@ def get_matching_people(people, authors_filename):
 
     return matches, names, unknown_names
 
-def publish_edition(people,
+def publish_edition(people=None,
                     output_dir='',
                     cache_dir='',
                     update_urls=False,
@@ -314,51 +300,3 @@ def publish_edition(people,
 
         stdout.write('wrote %s\n' % json_filename)
         stdout.write('wrote %s\n' % issue_filename)
-
-parser_options = {
-    ('-f', '--refresh-feeds',): 
-    dict(dest='update_urls',
-         help='refresh feeds',
-         action='store_true',
-         default=False),
-
-    ('-p', '--reparse-feeds',): 
-    dict(dest='update_articles',
-         help='re-parse feeds',
-         action='store_true',
-         default=False),
-
-    ('-d', '--dry-run',): 
-    dict(dest='dry_run',
-         help='do not write anything to disk',
-         action='store_true',
-         default=False),
-
-    ('-a', '--authors-file',):
-    dict(dest='authors_filename',
-         help='authors filename (default is %s)' % repr(AUTHORS_FILENAME),
-         default=AUTHORS_FILENAME),
-
-    ('-c', '--cache-dir',):
-    dict(dest='cache_dir',
-         help='directory to store cached data in',
-         default=''),
-
-    ('-o', '--output-dir',):
-    dict(dest='output_dir',
-         help='directory to output issue JSON files to',
-         default='')
-}
-
-def get_settings_options(settings, include_defaults=True):
-    items = [(o['dest'], o['default'])
-             for o in parser_options.values()]
-    options = {}
-    if getattr(settings, 'DAILY_EDITION', None):
-        de_settings = settings.DAILY_EDITION
-        for name, default in items:
-            if name in de_settings:
-                options[name] = de_settings[name]
-            elif include_defaults:
-                options[name] = default
-    return options

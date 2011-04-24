@@ -9,24 +9,21 @@ from django.http import HttpResponseNotFound, HttpResponseRedirect
 from django.shortcuts import redirect
 from django.conf import settings
 from django.contrib import messages
-from publish_edition import get_settings_options, get_matching_people, \
-                            backup_file
 from models import Person
+import publish_edition as pedition
+import multiuser
 
-publish_settings = get_settings_options(settings)
-
+def get_account(req):
+    return multiuser.Account(root_dir=settings.DAILY_EDITION_ROOT_DIR,
+                             user=req.user)
+    
 @login_required
 def edition(req, issue=None):
-    if issue is None:
-        basename = 'daily-edition.json'
-    else:
-        basename = 'issue-%s.json' % issue
-    filename = os.path.join(publish_settings['output_dir'],
-                            basename)
-    if os.path.exists(filename):
+    acct = get_account(req)
+    if acct.has_issue(issue):
         return render_to_response(
             'daily_edition/issue.html',
-            dict(issue_data=open(filename).read()),
+            dict(issue_data=acct.get_issue_json(issue)),
             context_instance=RequestContext(req)
             )
     else:
@@ -34,8 +31,11 @@ def edition(req, issue=None):
 
 @login_required
 def view_list(req):
-    filename = publish_settings['authors_filename']
-    matches, names, unknown_names = get_matching_people(Person, filename)
+    acct = get_account(req)
+    matches, names, unknown_names = pedition.get_matching_people(
+        Person,
+        acct.authors_filename
+        )
     people = []
     for name in names:
         if name in unknown_names:
@@ -49,13 +49,12 @@ def view_list(req):
 
 @login_required
 def edit_list(req):
-    filename = publish_settings['authors_filename']
+    acct = get_account(req)
     if req.method == 'POST':
-        backup_file(filename)
-        open(filename, 'w').write(req.POST['text'])
+        acct.set_authors(req.POST['text'])
         messages.add_message(req, messages.INFO, 'List saved.')
         return redirect('view-list')
-    text = open(filename).read()
+    text = open(acct.authors_filename).read()
     return render_to_response('daily_edition/edit_list.html', 
                               dict(text=text),
                               context_instance=RequestContext(req))
@@ -63,8 +62,10 @@ def edit_list(req):
 @login_required
 def publish_edition(req):
     if req.method == 'POST':
+        acct = get_account(req)
+        options = dict(people=Person, update_urls=False)
         if 'refresh-feeds' in req.POST:
-            options = dict(update_urls=True)
+            options.update(dict(update_urls=True))
             messages.add_message(
                 req,
                 messages.INFO,
@@ -72,11 +73,10 @@ def publish_edition(req):
                  'since feeds are being refreshed.')
                 )
         else:
-            options = {}
             messages.add_message(req, messages.INFO, 'Starting the presses.')
         
         def start_job():
-            management.call_command('publish_edition', **options)
+            acct.publish_edition(pedition.publish_edition, **options)
 
         t = threading.Thread(target=start_job)
         t.start()

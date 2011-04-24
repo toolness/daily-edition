@@ -64,3 +64,34 @@ class MultiuserTests(TestCase):
                          'authors', 'authors.txt')
           )
         self.assertEqual(open(self.mu.authors_filename).read(), '')
+
+    def test_set_authors_backs_up_file(self):
+        def read_backup(num):
+            filename = os.path.join(self.mu.authors_dir,
+                                    'authors.txt.backup.%d' % num)
+            return open(filename).read()
+
+        self.mu.set_authors('foo')
+        self.mu.set_authors('bar')
+        self.mu.set_authors('baz')
+
+        self.assertEqual(open(self.mu.authors_filename).read(), 'baz')
+        self.assertEqual(read_backup(1), '')
+        self.assertEqual(read_backup(2), 'foo')
+        self.assertEqual(read_backup(3), 'bar')
+
+    def test_publish_edition_works(self):
+        kwargs = {}
+        
+        def publish_edition(**passed_kwargs):
+            kwargs.update(passed_kwargs)
+        
+        self.mu.publish_edition(people='passed through',
+                                update_urls=True,
+                                publish_edition=publish_edition)
+        self.assertEqual(kwargs['people'], 'passed through')
+        self.assertEqual(kwargs['output_dir'], self.mu.issues_dir)
+        self.assertEqual(kwargs['cache_dir'], self.mu.caches_dir)
+        self.assertEqual(kwargs['update_urls'], True)
+        self.assertEqual(kwargs['authors_filename'], self.mu.authors_filename)
+        
