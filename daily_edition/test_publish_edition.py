@@ -51,7 +51,7 @@ class LegacyTests(TestCase):
         os.mkdir(self.cache_dir)
         os.mkdir(self.output_dir)
         open(self.authors_filename, 'w').close()
-
+        
     def tearDown(self):
         urllib2.urlopen = self.old_urlopen
         publish_edition.date = self.old_date
@@ -83,7 +83,7 @@ class LegacyTests(TestCase):
         f.add_item(
             title=title,
             link=u"http://www.example.com/entries/1/",
-            pubdate=datetime.datetime.now(),
+            pubdate=publish_edition.datetime.now(),
             description=u"<p>Hello there.</p>"
             )
         return FakeResponse(f.writeString('UTF-8'))
@@ -108,7 +108,7 @@ class LegacyTests(TestCase):
                                   u'language': u'en',
                                   u'type': u'text/html',
                                   u'value': u'<p>Hello there.</p>'}],
-                    u'pubDate': [2011, 4, 19],
+                    u'pubDate': [2010, 1, 1],
                     u'title': u'Blizzard blip.tv Post',
                     u'url': u'http://www.example.com/entries/1/'
                     }],
@@ -117,7 +117,7 @@ class LegacyTests(TestCase):
                                   u'language': u'en',
                                   u'type': u'text/html',
                                   u'value': u'<p>Hello there.</p>'}],
-                    u'pubDate': [2011, 4, 19],
+                    u'pubDate': [2010, 1, 1],
                     u'title': u'Shaver post',
                     u'url': u'http://www.example.com/entries/1/'
                     }]},
