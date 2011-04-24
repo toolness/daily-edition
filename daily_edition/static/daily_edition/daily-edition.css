@@ -23,9 +23,11 @@ table, tr, td, th {
   padding: 0.5em;
 }
 
-#container {
-    width: 40em;
-    margin: 0 auto;
+@media all and (min-width: 600px) {
+  #container {
+      width: 40em;
+      margin: 0 auto;
+  }
 }
 
 #templates {
