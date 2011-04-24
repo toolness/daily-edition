@@ -1,12 +1,4 @@
 {% extends "base.html" %}
-{% block head %}
-<style>
-div.response {
-  padding-top: 1em;
-  font-family: Monaco, "Lucida Console", monospace;
-}
-</style>
-{% endblock %}
 {% block title %}Publish A New Daily Edition{% endblock %}
 {% block header %}Publish A New Daily Edition.{% endblock %}
 {% block content %}
@@ -20,7 +12,4 @@ div.response {
 </p>
 <input type="submit" value="Publish New Daily Edition"/>
 </form>
-<div class="response">
-{{ response }}
-</div>
 {% endblock %}

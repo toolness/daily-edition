@@ -5,8 +5,9 @@ from django.shortcuts import render_to_response
 from django.contrib.auth.decorators import login_required
 from django.template import RequestContext
 from django.core import management
-from django.http import HttpResponseNotFound
+from django.http import HttpResponseNotFound, HttpResponseRedirect
 from django.conf import settings
+from django.contrib import messages
 from publish_edition import get_settings_options, get_matching_people, \
                             backup_file
 from models import Person
@@ -36,13 +37,12 @@ def edit_list(req):
     if req.method == 'POST':
         backup_file(filename)
         open(filename, 'w').write(req.POST['text'])
-        response = 'List saved.'
-    else:
-        response = ''
+        messages.add_message(req, messages.INFO, 'List saved.')
+        return HttpResponseRedirect(req.get_full_path())
     _, _, unknown_names = get_matching_people(Person, filename)
     text = open(filename).read()
     return render_to_response('daily_edition/edit_list.html', 
-                              dict(text=text, response=response,
+                              dict(text=text,
                                    unknown_names=unknown_names),
                               context_instance=RequestContext(req))
 
@@ -51,19 +51,23 @@ def publish_edition(req):
     if req.method == 'POST':
         if 'refresh-feeds' in req.POST:
             options = dict(update_urls=True)
-            response = ('Starting the presses. This may take a while, '
-                        'since feeds are being refreshed.')
+            messages.add_message(
+                req,
+                messages.INFO,
+                ('Starting the presses. This may take a while, '
+                 'since feeds are being refreshed.')
+                )
         else:
             options = {}
-            response = 'Starting the presses.'
+            messages.add_message(req, messages.INFO, 'Starting the presses.')
         
         def start_job():
             management.call_command('publish_edition', **options)
 
         t = threading.Thread(target=start_job)
         t.start()
-    else:
-        response = ''
+        return HttpResponseRedirect(req.get_full_path())
+
     return render_to_response('daily_edition/publish_edition.html',
-                              {'response': response},
+                              {},
                               context_instance=RequestContext(req))
