@@ -11,6 +11,7 @@ div.response {
 {% block header %}Publish A New Daily Edition.{% endblock %}
 {% block content %}
 <p>You can read the <a href="{% url latest-edition %}">latest edition</a> or publish a new one here.</p>
+<p>You can also edit your <a href="{% url edit-list %}">influencer list</a>.</p>
 <form method="POST">
 {% csrf_token %}
 <p>

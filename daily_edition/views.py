@@ -5,7 +5,7 @@ from django.shortcuts import render_to_response
 from django.contrib.auth.decorators import login_required
 from django.template import RequestContext
 from django.core import management
-from django.http import HttpResponse, HttpResponseNotFound
+from django.http import HttpResponseNotFound
 from django.conf import settings
 from publish_edition import get_settings_options
 
@@ -27,6 +27,33 @@ def edition(req, issue=None):
             )
     else:
         return HttpResponseNotFound()
+
+def backup_file(filename):
+    def mkfilename(i):
+        return '%s.backup.%d' % (filename, i)
+
+    i = 1
+    backup_filename = mkfilename(i)
+    while os.path.exists(backup_filename):
+        i += 1
+        backup_filename = mkfilename(i)
+
+    contents = open(filename).read()
+    open(backup_filename, 'w').write(contents)
+
+@login_required
+def edit_list(req):
+    filename = publish_settings['authors_filename']
+    if req.method == 'POST':
+        backup_file(filename)
+        open(filename, 'w').write(req.POST['text'])
+        response = 'List saved.'
+    else:
+        response = ''
+    text = open(filename).read()
+    return render_to_response('daily_edition/edit_list.html', 
+                              dict(text=text, response=response),
+                              context_instance=RequestContext(req))
 
 @login_required
 def publish_edition(req):
