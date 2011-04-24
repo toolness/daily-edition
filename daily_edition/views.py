@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.template import RequestContext
 from django.core import management
 from django.http import HttpResponseNotFound, HttpResponseRedirect
+from django.shortcuts import redirect
 from django.conf import settings
 from django.contrib import messages
 from publish_edition import get_settings_options, get_matching_people, \
@@ -32,18 +33,31 @@ def edition(req, issue=None):
         return HttpResponseNotFound()
 
 @login_required
+def view_list(req):
+    filename = publish_settings['authors_filename']
+    matches, names, unknown_names = get_matching_people(Person, filename)
+    people = []
+    for name in names:
+        if name in unknown_names:
+            people.append(dict(name=name, tags='unknown', is_unknown=True))
+        else:
+            people.append(dict(name=name, tags='known', is_unknown=False,
+                               info=Person.objects.get(name=name)))
+    return render_to_response('daily_edition/view_list.html',
+                              dict(people=people),
+                              context_instance=RequestContext(req))
+
+@login_required
 def edit_list(req):
     filename = publish_settings['authors_filename']
     if req.method == 'POST':
         backup_file(filename)
         open(filename, 'w').write(req.POST['text'])
         messages.add_message(req, messages.INFO, 'List saved.')
-        return HttpResponseRedirect(req.get_full_path())
-    _, _, unknown_names = get_matching_people(Person, filename)
+        return redirect('view-list')
     text = open(filename).read()
     return render_to_response('daily_edition/edit_list.html', 
-                              dict(text=text,
-                                   unknown_names=unknown_names),
+                              dict(text=text),
                               context_instance=RequestContext(req))
 
 @login_required

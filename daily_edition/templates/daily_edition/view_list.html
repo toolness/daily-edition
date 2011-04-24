@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% block head %}
+<style>
+ul#people, ul.sites {
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+ul#people > li {
+  padding-top: 1em;
+  padding-bottom: 1em;
+  border-bottom: 1px dotted gray;
+}
+
+ul#people div.name {
+  font-size: 14pt;
+  padding-right: 0.5em;
+  padding-bottom: 0.5em;
+}
+
+ul#people div.name.known {
+  float: left;  
+}
+
+ul#people div.name.unknown {
+  background: rgba(255, 0, 0, 0.1);
+}
+
+ul#people div.name a {
+  text-decoration: none;
+}
+
+ul.sites {
+  text-align: right;
+}
+
+ul.sites li {
+  display: inline;
+  padding-left: 1em;
+}
+
+ul.sites li a {
+  text-decoration: none;
+  color: gray !important;
+  font-size: 8pt;
+}
+</style>
+{% endblock %}
+{% block title %}Your Influencer List{% endblock %}
+{% block header %}Your Influencer List.{% endblock %}
+{% block content %}
+<p>The order of names in this list is important; names higher in the list are more influential to you than ones lower, and will therefore have a better chance of being included in an issue.</p>
+<p>You can <a href="{% url edit-list %}">edit this list</a>.</p>
+<ul id="people">
+{% for person in people %}
+  <li class="{{ person.tags }}">
+    {% if not person.is_unknown %}
+      <div class="name known"><a href="{% url admin:daily_edition_person_change person.info.id %}">{{ person.name }}</a></div>
+      <ul class="sites">
+        {% for site in person.info.sites.all %}
+          <li><a href="{{ site.url }}" target="_new">{{ site.title }}</a></li>
+        {% endfor %}
+      </ul>
+    {% else %}
+    <div class="name unknown"><a href="{% url admin:daily_edition_person_add %}">{{ person.name }}</a></div>    
+    {% endif %}
+  </li>
+{% endfor %}
+</ul>
+{% endblock %}

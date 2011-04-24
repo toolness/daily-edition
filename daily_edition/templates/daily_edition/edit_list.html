@@ -21,12 +21,4 @@ textarea {
 </p>
 <input type="submit" value="Save Changes"/>
 </form>
-{% if unknown_names %}
-<p>There are unknown names in this list:</p>
-<ul>
-  {% for name in unknown_names %}
-  <li>{{ name }}</li>
-  {% endfor %}
-</ul>
-{% endif %}
 {% endblock %}
