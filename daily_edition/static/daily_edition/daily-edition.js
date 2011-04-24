@@ -22,19 +22,7 @@ function safeHtml(html) {
     });
 }
 
-function showError() {
-  $("#error").show();
-  $("#container").fadeIn("fast");
-}
-
-function showContent(json) {
-  var info;
-
-  if (window.JSON)
-    info = JSON.parse(json);
-  else
-    info = eval("(" + json + ");");
-
+function showContent(info) {
   $("#issue-no").text(info.id + 1);
   $("#pub-date").text(info.pubDate.join("."));
 
@@ -74,24 +62,6 @@ function showContent(json) {
   $("#container").fadeIn("fast");
 }
 
-$(window).ready(
-  function() {
-    var req = new XMLHttpRequest();
-
-    req.open('GET', 'data.json');
-    req.overrideMimeType('text/plain');
-    req.addEventListener("error", showError, false);
-    req.addEventListener(
-      "load",
-      function(event) {
-        if (req.status != 200) {
-          showError();
-          return;
-        }
-
-        showContent(req.responseText);
-      },
-      false
-    );
-    req.send(null);
-  });
+$(window).ready(function() {
+  showContent(issueData);
+});

@@ -15,6 +15,9 @@ div#container {
 <span id="pub">&mdash; <span id="pub-date"></span></span>
 {% endblock %}
 {% block scripts %}
+<script>
+var issueData = {{ issue_data|safe }}
+</script>
 <script src="{{ STATIC_URL }}daily_edition/html-sanitizer-minified.js"></script>
 <script src="{{ STATIC_URL }}daily_edition/daily-edition.js"></script>
 {% endblock %}

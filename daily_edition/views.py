@@ -11,27 +11,22 @@ from publish_edition import get_settings_options
 
 publish_settings = get_settings_options(settings)
 
-def output_json_or_404(basename):
+@login_required
+def edition(req, issue=None):
+    if issue is None:
+        basename = 'daily-edition.json'
+    else:
+        basename = 'issue-%s.json' % issue
     filename = os.path.join(publish_settings['output_dir'],
                             basename)
     if os.path.exists(filename):
-        return HttpResponse(open(filename).read(),
-                            mimetype='application/json')
+        return render_to_response(
+            'daily_edition/index.html',
+            dict(issue_data=open(filename).read()),
+            context_instance=RequestContext(req)
+            )
     else:
         return HttpResponseNotFound()
-
-@login_required
-def latest_edition_json(req):
-    return output_json_or_404('daily-edition.json')
-    
-@login_required
-def edition_json(req, issue):
-    return output_json_or_404('issue-%s.json' % issue)
-
-@login_required
-def edition(req, issue=None):
-    return render_to_response('daily_edition/index.html', {},
-                              context_instance=RequestContext(req))
 
 @login_required
 def publish_edition(req):
