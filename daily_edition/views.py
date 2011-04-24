@@ -7,7 +7,8 @@ from django.template import RequestContext
 from django.core import management
 from django.http import HttpResponseNotFound
 from django.conf import settings
-from publish_edition import get_settings_options
+from publish_edition import get_settings_options, get_matching_people
+from models import Person
 
 publish_settings = get_settings_options(settings)
 
@@ -50,9 +51,11 @@ def edit_list(req):
         response = 'List saved.'
     else:
         response = ''
+    _, _, unknown_names = get_matching_people(Person, filename)
     text = open(filename).read()
     return render_to_response('daily_edition/edit_list.html', 
-                              dict(text=text, response=response),
+                              dict(text=text, response=response,
+                                   unknown_names=unknown_names),
                               context_instance=RequestContext(req))
 
 @login_required

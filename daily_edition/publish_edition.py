@@ -185,6 +185,26 @@ def filter_articles(names, articles, issues,
                  ', '.join(filtered_articles.keys())))
     return normalize(filtered_articles)
 
+def get_matching_people(people, authors_filename):
+    stream = open(authors_filename, 'r')
+
+    names = [line.strip()
+             for line in stream.readlines()
+             if line and not line.startswith('#')]
+
+    matches = []
+    unknown_names = []
+
+    for name in names:
+        try:
+            person = people.objects.get(name=name)
+            matches.append(person)
+        except Exception:
+            unknown_names.append(name)
+            continue
+
+    return matches, names, unknown_names
+
 def publish_edition(people,
                     output_dir='',
                     cache_dir='',
@@ -199,19 +219,10 @@ def publish_edition(people,
     def cachepath(filename):
         return os.path.join(cache_dir, filename)
 
-    names = [line.strip()
-             for line in open(authors_filename, 'r').readlines()
-             if line and not line.startswith('#')]
-
-    unknown_names = []
+    matches, names, unknown_names = get_matching_people(people,
+                                                        authors_filename)
     following = []
-    for name in names:
-        try:
-            person = people.objects.get(name=name)
-        except Exception:
-            unknown_names.append(name)
-            continue
-        
+    for person in matches:
         # Convert person record to the JSON format that
         # the rest of this legacy code expects.
         
