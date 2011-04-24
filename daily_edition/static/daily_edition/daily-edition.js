@@ -22,22 +22,9 @@ function safeHtml(html) {
     });
 }
 
-const JSON_DIR = 'json/';
-const DEFAULT_JSON_FILE = JSON_DIR + 'daily-edition.json';
-var jsonFile = DEFAULT_JSON_FILE;
-
 function showError() {
-  var json;
-
-  if (jsonFile == DEFAULT_JSON_FILE)
-    json = window.localStorage[DEFAULT_JSON_FILE];
-
-  if (json)
-    showContent(json);
-  else {
-    $("#error").show();
-    $("#container").fadeIn("fast");
-  }
+  $("#error").show();
+  $("#container").fadeIn("fast");
 }
 
 function showContent(json) {
@@ -91,13 +78,7 @@ $(window).ready(
   function() {
     var req = new XMLHttpRequest();
 
-    var matches = location.search.match(/\?issue=([0-9]+)/);
-    if (!matches)
-      matches = location.hash.match(/\#issue=([0-9]+)/);
-    if (matches)
-      jsonFile = JSON_DIR + 'issue-' + parseInt(matches[1]) + '.json';
-
-    req.open('GET', jsonFile);
+    req.open('GET', 'data.json');
     req.overrideMimeType('text/plain');
     req.addEventListener("error", showError, false);
     req.addEventListener(
@@ -107,9 +88,6 @@ $(window).ready(
           showError();
           return;
         }
-
-        if (jsonFile == DEFAULT_JSON_FILE)
-          window.localStorage[DEFAULT_JSON_FILE] = req.responseText;
 
         showContent(req.responseText);
       },

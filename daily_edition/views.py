@@ -29,7 +29,7 @@ def edition_json(req, issue):
     return output_json_or_404('issue-%s.json' % issue)
 
 @login_required
-def latest_edition(req):
+def edition(req, issue=None):
     return render_to_response('daily_edition/index.html', {},
                               context_instance=RequestContext(req))
 
