@@ -12,6 +12,7 @@ div.response {
 {% block content %}
 <p>You can read the <a href="{% url latest-edition %}">latest edition</a> or publish a new one here.</p>
 <p>You can also edit your <a href="{% url edit-list %}">influencer list</a>.</p>
+<p>For now, people can be managed in the <a href="{% url admin:daily_edition_person_changelist %}">admin interface</a>.</p>
 <form method="POST">
 {% csrf_token %}
 <p>
