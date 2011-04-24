@@ -97,6 +97,14 @@ class LegacyTests(TestCase):
             **kwargs
             )
 
+    def test_authors_backup_works(self):
+        self.set_authors('Christopher Blizzard', 'Mike Shaver')
+        bfn = publish_edition.backup_file(self.authors_filename)
+        self.assertEqual(open(bfn).read(),
+                         open(self.authors_filename).read())
+        bfn2 = publish_edition.backup_file(self.authors_filename)
+        self.assertTrue(bfn != bfn2)
+
     def test_publish_edition_works(self):
         self.set_authors('Christopher Blizzard', 'Mike Shaver')
         self.publish_edition(update_urls=True, min_article_word_count=1)

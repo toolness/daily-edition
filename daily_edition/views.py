@@ -7,7 +7,8 @@ from django.template import RequestContext
 from django.core import management
 from django.http import HttpResponseNotFound
 from django.conf import settings
-from publish_edition import get_settings_options, get_matching_people
+from publish_edition import get_settings_options, get_matching_people, \
+                            backup_file
 from models import Person
 
 publish_settings = get_settings_options(settings)
@@ -28,19 +29,6 @@ def edition(req, issue=None):
             )
     else:
         return HttpResponseNotFound()
-
-def backup_file(filename):
-    def mkfilename(i):
-        return '%s.backup.%d' % (filename, i)
-
-    i = 1
-    backup_filename = mkfilename(i)
-    while os.path.exists(backup_filename):
-        i += 1
-        backup_filename = mkfilename(i)
-
-    contents = open(filename).read()
-    open(backup_filename, 'w').write(contents)
 
 @login_required
 def edit_list(req):

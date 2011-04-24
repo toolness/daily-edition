@@ -39,6 +39,20 @@ def save(obj, filename):
 def to_date_tuple(dt):
     return (dt.year, dt.month, dt.day)
 
+def backup_file(filename):
+    def mkfilename(i):
+        return '%s.backup.%d' % (filename, i)
+
+    i = 1
+    backup_filename = mkfilename(i)
+    while os.path.exists(backup_filename):
+        i += 1
+        backup_filename = mkfilename(i)
+
+    contents = open(filename).read()
+    open(backup_filename, 'w').write(contents)
+    return backup_filename
+
 def refresh_urls(feeds, urls):
     def worker():
         while True:
