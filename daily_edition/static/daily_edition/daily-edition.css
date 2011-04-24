@@ -107,3 +107,21 @@ ul.messages {
 ul.messages li.info {
   background: rgba(0, 255, 0, 0.1); 
 }
+
+#footer {
+  color: gray;
+  margin-top: 1em;
+  border-top: 1px dotted gray;
+  text-align: right;
+  font-size: 8pt;
+}
+
+#footer a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+#footer a:hover {
+  text-decoration: underline;
+  background: inherit;
+}
