@@ -23,7 +23,7 @@ def edition(req, issue=None):
                             basename)
     if os.path.exists(filename):
         return render_to_response(
-            'daily_edition/index.html',
+            'daily_edition/issue.html',
             dict(issue_data=open(filename).read()),
             context_instance=RequestContext(req)
             )
