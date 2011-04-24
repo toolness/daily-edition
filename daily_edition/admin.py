@@ -7,6 +7,7 @@ class AliasInline(admin.TabularInline):
 
 class SiteInline(admin.TabularInline):
     model = Site
+    exclude = ('last_update',)
     extra = 1
 
 class PersonAdmin(admin.ModelAdmin):
