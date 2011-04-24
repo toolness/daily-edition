@@ -36,11 +36,11 @@ class Site(models.Model):
     ]
 
     kind = models.CharField(max_length=10, choices=KIND_CHOICES)
-    title = models.CharField(max_length=255, null=True)
+    title = models.CharField(max_length=255, null=True, blank=True)
     url = models.URLField(max_length=1000)
-    feed = models.URLField(null=True, max_length=1000)
+    feed = models.URLField(null=True, blank=True, max_length=1000)
     person = models.ForeignKey(Person, related_name='sites')
-    last_update = models.DateTimeField(null=True)
+    last_update = models.DateTimeField(null=True, blank=True)
 
     def __unicode__(self):
         return self.title or self.url
