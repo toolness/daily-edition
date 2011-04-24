@@ -53,10 +53,6 @@ table, tr, td, th {
     color: gray;
 }
 
-#error {
-    display: none;
-}
-
 .article {
     padding-top: 0.5em;
     padding-bottom: 0.5em;
