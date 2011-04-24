@@ -60,3 +60,4 @@ class SimpleTest(TestCase):
 # Run more tests.
 
 from test_publish_edition import *
+from test_multiuser import *
