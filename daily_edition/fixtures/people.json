@@ -1,0 +1,970 @@
+[
+  {
+    "pk": 1,
+    "model": "daily_edition.person",
+    "fields": {
+      "name": "Christopher Blizzard"
+    }
+  },
+  {
+    "pk": 2,
+    "model": "daily_edition.person",
+    "fields": {
+      "name": ""
+    }
+  },
+  {
+    "pk": 3,
+    "model": "daily_edition.person",
+    "fields": {
+      "name": ""
+    }
+  },
+  {
+    "pk": 4,
+    "model": "daily_edition.person",
+    "fields": {
+      "name": "Johnathan Nightingale"
+    }
+  },
+  {
+    "pk": 5,
+    "model": "daily_edition.person",
+    "fields": {
+      "name": "Mike Shaver"
+    }
+  },
+  {
+    "pk": 6,
+    "model": "daily_edition.person",
+    "fields": {
+      "name": "Joe Shaw"
+    }
+  },
+  {
+    "pk": 7,
+    "model": "daily_edition.person",
+    "fields": {
+      "name": "Asa Dotzler"
+    }
+  },
+  {
+    "pk": 8,
+    "model": "daily_edition.person",
+    "fields": {
+      "name": "Vladimir Vuki\u0107evi\u0107"
+    }
+  },
+  {
+    "pk": 9,
+    "model": "daily_edition.person",
+    "fields": {
+      "name": "Robert O'Callahan"
+    }
+  },
+  {
+    "pk": 10,
+    "model": "daily_edition.person",
+    "fields": {
+      "name": "Shona Blizzard-Derr"
+    }
+  },
+  {
+    "pk": 11,
+    "model": "daily_edition.person",
+    "fields": {
+      "name": "Matt Asay"
+    }
+  },
+  {
+    "pk": 12,
+    "model": "daily_edition.person",
+    "fields": {
+      "name": "Joi Ito"
+    }
+  },
+  {
+    "pk": 1,
+    "model": "daily_edition.alias",
+    "fields": {
+      "person": 1,
+      "name": "@fisl2008"
+    }
+  },
+  {
+    "pk": 2,
+    "model": "daily_edition.alias",
+    "fields": {
+      "person": 1,
+      "name": "@guadec2008"
+    }
+  },
+  {
+    "pk": 3,
+    "model": "daily_edition.alias",
+    "fields": {
+      "person": 1,
+      "name": "@moz08"
+    }
+  },
+  {
+    "pk": 4,
+    "model": "daily_edition.alias",
+    "fields": {
+      "person": 1,
+      "name": "@oscon2008"
+    }
+  },
+  {
+    "pk": 5,
+    "model": "daily_edition.alias",
+    "fields": {
+      "person": 1,
+      "name": "Chris Blizzard"
+    }
+  },
+  {
+    "pk": 6,
+    "model": "daily_edition.alias",
+    "fields": {
+      "person": 1,
+      "name": "freenode:blizzard"
+    }
+  },
+  {
+    "pk": 7,
+    "model": "daily_edition.alias",
+    "fields": {
+      "person": 1,
+      "name": "gnome:blizzard"
+    }
+  },
+  {
+    "pk": 8,
+    "model": "daily_edition.alias",
+    "fields": {
+      "person": 1,
+      "name": "mozilla:blizzard"
+    }
+  },
+  {
+    "pk": 9,
+    "model": "daily_edition.alias",
+    "fields": {
+      "person": 4,
+      "name": "@moz08"
+    }
+  },
+  {
+    "pk": 10,
+    "model": "daily_edition.alias",
+    "fields": {
+      "person": 4,
+      "name": "johnath"
+    }
+  },
+  {
+    "pk": 11,
+    "model": "daily_edition.alias",
+    "fields": {
+      "person": 5,
+      "name": "@moz08"
+    }
+  },
+  {
+    "pk": 12,
+    "model": "daily_edition.alias",
+    "fields": {
+      "person": 5,
+      "name": "linuxnet:shaver"
+    }
+  },
+  {
+    "pk": 13,
+    "model": "daily_edition.alias",
+    "fields": {
+      "person": 5,
+      "name": "mozilla:shaver"
+    }
+  },
+  {
+    "pk": 14,
+    "model": "daily_edition.alias",
+    "fields": {
+      "person": 6,
+      "name": "beagle:joe"
+    }
+  },
+  {
+    "pk": 15,
+    "model": "daily_edition.alias",
+    "fields": {
+      "person": 6,
+      "name": "gnome:joe"
+    }
+  },
+  {
+    "pk": 16,
+    "model": "daily_edition.alias",
+    "fields": {
+      "person": 6,
+      "name": "joeshaw"
+    }
+  },
+  {
+    "pk": 17,
+    "model": "daily_edition.alias",
+    "fields": {
+      "person": 6,
+      "name": "linuxnet:joe"
+    }
+  },
+  {
+    "pk": 18,
+    "model": "daily_edition.alias",
+    "fields": {
+      "person": 6,
+      "name": "number:6"
+    }
+  },
+  {
+    "pk": 19,
+    "model": "daily_edition.alias",
+    "fields": {
+      "person": 7,
+      "name": "@moz08"
+    }
+  },
+  {
+    "pk": 20,
+    "model": "daily_edition.alias",
+    "fields": {
+      "person": 7,
+      "name": "mozilla:asa"
+    }
+  },
+  {
+    "pk": 21,
+    "model": "daily_edition.alias",
+    "fields": {
+      "person": 8,
+      "name": "@moz08"
+    }
+  },
+  {
+    "pk": 22,
+    "model": "daily_edition.alias",
+    "fields": {
+      "person": 8,
+      "name": "Vlad Vukicevic"
+    }
+  },
+  {
+    "pk": 23,
+    "model": "daily_edition.alias",
+    "fields": {
+      "person": 8,
+      "name": "linuxnet:vlad"
+    }
+  },
+  {
+    "pk": 24,
+    "model": "daily_edition.alias",
+    "fields": {
+      "person": 8,
+      "name": "mozilla:vlad"
+    }
+  },
+  {
+    "pk": 25,
+    "model": "daily_edition.alias",
+    "fields": {
+      "person": 9,
+      "name": "@moz08"
+    }
+  },
+  {
+    "pk": 26,
+    "model": "daily_edition.alias",
+    "fields": {
+      "person": 9,
+      "name": "mozilla:roc"
+    }
+  },
+  {
+    "pk": 27,
+    "model": "daily_edition.alias",
+    "fields": {
+      "person": 12,
+      "name": "Joichi Ito"
+    }
+  },
+  {
+    "pk": 28,
+    "model": "daily_edition.alias",
+    "fields": {
+      "person": 12,
+      "name": "joi"
+    }
+  },
+  {
+    "pk": 1,
+    "model": "daily_edition.site",
+    "fields": {
+      "feed": "http://chrisblizzard.blip.tv/rss",
+      "kind": "feed",
+      "title": "Christopher Blizzard",
+      "url": "http://chrisblizzard.blip.tv",
+      "last_update": null,
+      "person": 1
+    }
+  },
+  {
+    "pk": 2,
+    "model": "daily_edition.site",
+    "fields": {
+      "feed": "http://api.flickr.com/services/feeds/photos_public.gne?id=76418115@N00&lang=en-us&format=rss_200",
+      "kind": "flickr",
+      "title": "Uploads from Christopher Blizzard",
+      "url": "http://www.flickr.com/photos/christopherblizzard/",
+      "last_update": null,
+      "person": 1
+    }
+  },
+  {
+    "pk": 3,
+    "model": "daily_edition.site",
+    "fields": {
+      "feed": null,
+      "kind": "linkedin",
+      "title": null,
+      "url": "http://www.linkedin.com/in/christopherblizzard",
+      "last_update": null,
+      "person": 1
+    }
+  },
+  {
+    "pk": 4,
+    "model": "daily_edition.site",
+    "fields": {
+      "feed": "http://twitter.com/statuses/user_timeline/12811302.atom",
+      "kind": "twitter",
+      "title": "Twitter / chrisblizzard",
+      "url": "http://twitter.com/chrisblizzard",
+      "last_update": null,
+      "person": 1
+    }
+  },
+  {
+    "pk": 5,
+    "model": "daily_edition.site",
+    "fields": {
+      "feed": "http://identi.ca/blizzard/rss",
+      "kind": "identica",
+      "title": "blizzard timeline",
+      "url": "http://identi.ca/blizzard",
+      "last_update": null,
+      "person": 1
+    }
+  },
+  {
+    "pk": 6,
+    "model": "daily_edition.site",
+    "fields": {
+      "feed": "http://feeds.delicious.com/v2/rss/christopherblizzard?count=15",
+      "kind": "delicious",
+      "title": "Delicious/christopherblizzard",
+      "url": "http://delicious.com/christopherblizzard",
+      "last_update": null,
+      "person": 1
+    }
+  },
+  {
+    "pk": 7,
+    "model": "daily_edition.site",
+    "fields": {
+      "feed": "http://vimeo.com/user1345996/videos/rss",
+      "kind": "vimeo",
+      "title": "Vimeo / Christopher Blizzard's uploaded videos",
+      "url": "http://vimeo.com/user1345996/videos/uploaded",
+      "last_update": null,
+      "person": 1
+    }
+  },
+  {
+    "pk": 8,
+    "model": "daily_edition.site",
+    "fields": {
+      "feed": "http://www.0xdeadbeef.com/weblog/?feed=rss2",
+      "kind": "feed",
+      "title": "Christopher Blizzard",
+      "url": "http://www.0xdeadbeef.com/weblog",
+      "last_update": null,
+      "person": 1
+    }
+  },
+  {
+    "pk": 9,
+    "model": "daily_edition.site",
+    "fields": {
+      "feed": "http://www.youtube.com/ut_rss?type=username&arg=christopherblizzard",
+      "kind": "youtube",
+      "title": "Uploads by christopherblizzard",
+      "url": "http://www.youtube.com/profile_videos?user=christopherblizzard",
+      "last_update": null,
+      "person": 1
+    }
+  },
+  {
+    "pk": 10,
+    "model": "daily_edition.site",
+    "fields": {
+      "feed": "http://twitter.com/statuses/user_timeline/15280734.atom",
+      "kind": "twitter",
+      "title": "Twitter / whoisi",
+      "url": "http://twitter.com/whoisi",
+      "last_update": null,
+      "person": 1
+    }
+  },
+  {
+    "pk": 11,
+    "model": "daily_edition.site",
+    "fields": {
+      "feed": "http://blog.johnath.com/index.php/feed/atom/",
+      "kind": "feed",
+      "title": "meandering wildly",
+      "url": "http://blog.johnath.com",
+      "last_update": null,
+      "person": 4
+    }
+  },
+  {
+    "pk": 12,
+    "model": "daily_edition.site",
+    "fields": {
+      "feed": "http://hewitt.controlezvous.ca/johnath/rss",
+      "kind": "identica",
+      "title": "johnath",
+      "url": "http://identi.ca/johnath",
+      "last_update": null,
+      "person": 4
+    }
+  },
+  {
+    "pk": 13,
+    "model": "daily_edition.site",
+    "fields": {
+      "feed": "http://api.flickr.com/services/feeds/photos_public.gne?id=23586883@N00&lang=en-us&format=rss_200",
+      "kind": "flickr",
+      "title": "Uploads from Johnath",
+      "url": "http://www.flickr.com/photos/johnath/",
+      "last_update": null,
+      "person": 4
+    }
+  },
+  {
+    "pk": 14,
+    "model": "daily_edition.site",
+    "fields": {
+      "feed": null,
+      "kind": "linkedin",
+      "title": null,
+      "url": "http://www.linkedin.com/in/johnath",
+      "last_update": null,
+      "person": 4
+    }
+  },
+  {
+    "pk": 15,
+    "model": "daily_edition.site",
+    "fields": {
+      "feed": "http://twitter.com/statuses/user_timeline/6140482.atom",
+      "kind": "twitter",
+      "title": "Twitter / johnath",
+      "url": "http://twitter.com/johnath",
+      "last_update": null,
+      "person": 4
+    }
+  },
+  {
+    "pk": 16,
+    "model": "daily_edition.site",
+    "fields": {
+      "feed": "http://api.flickr.com/services/feeds/photos_public.gne?id=99971095@N00&lang=en-us&format=rss_200",
+      "kind": "flickr",
+      "title": "Uploads from shvmoz",
+      "url": "http://www.flickr.com/photos/shvmoz/",
+      "last_update": null,
+      "person": 5
+    }
+  },
+  {
+    "pk": 17,
+    "model": "daily_edition.site",
+    "fields": {
+      "feed": "http://twitter.com/statuses/user_timeline/2319611.atom",
+      "kind": "twitter",
+      "title": "Twitter / shaver",
+      "url": "http://twitter.com/shaver",
+      "last_update": null,
+      "person": 5
+    }
+  },
+  {
+    "pk": 18,
+    "model": "daily_edition.site",
+    "fields": {
+      "feed": null,
+      "kind": "linkedin",
+      "title": null,
+      "url": "http://www.linkedin.com/pub/0/252/5a2",
+      "last_update": null,
+      "person": 5
+    }
+  },
+  {
+    "pk": 19,
+    "model": "daily_edition.site",
+    "fields": {
+      "feed": "http://shaver.off.net/diary/feed/atom/",
+      "kind": "feed",
+      "title": "shaver",
+      "url": "http://shaver.off.net/diary",
+      "last_update": null,
+      "person": 5
+    }
+  },
+  {
+    "pk": 20,
+    "model": "daily_edition.site",
+    "fields": {
+      "feed": "http://api.flickr.com/services/feeds/photos_public.gne?id=36894430@N00&lang=en-us&format=rss_200",
+      "kind": "flickr",
+      "title": "Uploads from joeshaw",
+      "url": "http://www.flickr.com/photos/joeshaw/",
+      "last_update": null,
+      "person": 6
+    }
+  },
+  {
+    "pk": 21,
+    "model": "daily_edition.site",
+    "fields": {
+      "feed": "http://identi.ca/joe/rss",
+      "kind": "identica",
+      "title": "joe timeline",
+      "url": "http://identi.ca/joe",
+      "last_update": null,
+      "person": 6
+    }
+  },
+  {
+    "pk": 22,
+    "model": "daily_edition.site",
+    "fields": {
+      "feed": "http://shawblog.org/s/b/rss.xml",
+      "kind": "feed",
+      "title": "My Blog",
+      "url": "http://shawblog.org/s/b/b.html",
+      "last_update": null,
+      "person": 6
+    }
+  },
+  {
+    "pk": 23,
+    "model": "daily_edition.site",
+    "fields": {
+      "feed": null,
+      "kind": "linkedin",
+      "title": null,
+      "url": "http://www.linkedin.com/in/joeshaw",
+      "last_update": null,
+      "person": 6
+    }
+  },
+  {
+    "pk": 24,
+    "model": "daily_edition.site",
+    "fields": {
+      "feed": "http://joeshaw.org/feed/atom",
+      "kind": "feed",
+      "title": "joe shaw",
+      "url": "http://joeshaw.org",
+      "last_update": null,
+      "person": 6
+    }
+  },
+  {
+    "pk": 25,
+    "model": "daily_edition.site",
+    "fields": {
+      "feed": "http://github.com/joeshaw.atom",
+      "kind": "feed",
+      "title": "joeshaw's Activity",
+      "url": "http://github.com",
+      "last_update": null,
+      "person": 6
+    }
+  },
+  {
+    "pk": 26,
+    "model": "daily_edition.site",
+    "fields": {
+      "feed": "http://feeds.delicious.com/v2/rss/joe.shaw?count=15",
+      "kind": "delicious",
+      "title": "Delicious/joe.shaw",
+      "url": "http://delicious.com/joe.shaw",
+      "last_update": null,
+      "person": 6
+    }
+  },
+  {
+    "pk": 27,
+    "model": "daily_edition.site",
+    "fields": {
+      "feed": "http://twitter.com/statuses/user_timeline/5344992.atom",
+      "kind": "twitter",
+      "title": "Twitter / joeshaw",
+      "url": "http://twitter.com/joeshaw",
+      "last_update": null,
+      "person": 6
+    }
+  },
+  {
+    "pk": 28,
+    "model": "daily_edition.site",
+    "fields": {
+      "feed": "http://twitter.com/statuses/user_timeline/10058662.rss",
+      "kind": "twitter",
+      "title": "Twitter / asadotzler",
+      "url": "http://twitter.com/asadotzler",
+      "last_update": null,
+      "person": 7
+    }
+  },
+  {
+    "pk": 29,
+    "model": "daily_edition.site",
+    "fields": {
+      "feed": "http://weblogs.mozillazine.org/asa/index.rdf",
+      "kind": "feed",
+      "title": "Asa Dotzler: Firefox and more",
+      "url": "http://weblogs.mozillazine.org/asa/",
+      "last_update": null,
+      "person": 7
+    }
+  },
+  {
+    "pk": 30,
+    "model": "daily_edition.site",
+    "fields": {
+      "feed": "http://api.flickr.com/services/feeds/photos_public.gne?id=70915599@N00&lang=en-us&format=rss_200",
+      "kind": "flickr",
+      "title": "Uploads from asadotzler",
+      "url": "http://www.flickr.com/photos/asadotzler/",
+      "last_update": null,
+      "person": 7
+    }
+  },
+  {
+    "pk": 31,
+    "model": "daily_edition.site",
+    "fields": {
+      "feed": null,
+      "kind": "linkedin",
+      "title": null,
+      "url": "http://www.linkedin.com/pub/0/a3/bb4",
+      "last_update": null,
+      "person": 7
+    }
+  },
+  {
+    "pk": 32,
+    "model": "daily_edition.site",
+    "fields": {
+      "feed": "http://identi.ca/vladimir/rss",
+      "kind": "identica",
+      "title": "vladimir timeline",
+      "url": "http://identi.ca/vladimir",
+      "last_update": null,
+      "person": 8
+    }
+  },
+  {
+    "pk": 33,
+    "model": "daily_edition.site",
+    "fields": {
+      "feed": null,
+      "kind": "linkedin",
+      "title": null,
+      "url": "http://www.linkedin.com/pub/1/b86/6b7",
+      "last_update": null,
+      "person": 8
+    }
+  },
+  {
+    "pk": 34,
+    "model": "daily_edition.site",
+    "fields": {
+      "feed": "http://blog.vlad1.com/feed/atom/",
+      "kind": "feed",
+      "title": "Vladimir Vuki\u0107evi\u0107",
+      "url": "http://blog.vlad1.com",
+      "last_update": null,
+      "person": 8
+    }
+  },
+  {
+    "pk": 35,
+    "model": "daily_edition.site",
+    "fields": {
+      "feed": "http://twitter.com/statuses/user_timeline/14174812.atom",
+      "kind": "twitter",
+      "title": "Twitter / vvuk",
+      "url": "http://twitter.com/vvuk",
+      "last_update": null,
+      "person": 8
+    }
+  },
+  {
+    "pk": 36,
+    "model": "daily_edition.site",
+    "fields": {
+      "feed": "http://api.flickr.com/services/feeds/photos_public.gne?id=12435902@N03&lang=en-us&format=rss_200",
+      "kind": "flickr",
+      "title": "Uploads from Vlad's Phone",
+      "url": "http://www.flickr.com/photos/vladphone/",
+      "last_update": null,
+      "person": 8
+    }
+  },
+  {
+    "pk": 37,
+    "model": "daily_edition.site",
+    "fields": {
+      "feed": "http://api.flickr.com/services/feeds/photos_public.gne?id=92311327@N00&lang=en-us&format=rss_200",
+      "kind": "flickr",
+      "title": "Uploads from vvuk",
+      "url": "http://www.flickr.com/photos/vvuk/",
+      "last_update": null,
+      "person": 8
+    }
+  },
+  {
+    "pk": 38,
+    "model": "daily_edition.site",
+    "fields": {
+      "feed": "http://weblogs.mozillazine.org/roc/atom.xml",
+      "kind": "feed",
+      "title": "Well, I'm Back",
+      "url": "http://weblogs.mozillazine.org/roc/",
+      "last_update": null,
+      "person": 9
+    }
+  },
+  {
+    "pk": 39,
+    "model": "daily_edition.site",
+    "fields": {
+      "feed": null,
+      "kind": "linkedin",
+      "title": null,
+      "url": "http://www.linkedin.com/pub/2/575/358",
+      "last_update": null,
+      "person": 9
+    }
+  },
+  {
+    "pk": 40,
+    "model": "daily_edition.site",
+    "fields": {
+      "feed": "http://api.flickr.com/services/feeds/photos_public.gne?id=12452321@N00&lang=en-us&format=rss_200",
+      "kind": "flickr",
+      "title": "Uploads from shonab",
+      "url": "http://www.flickr.com/photos/12452321@N00/",
+      "last_update": null,
+      "person": 10
+    }
+  },
+  {
+    "pk": 41,
+    "model": "daily_edition.site",
+    "fields": {
+      "feed": "http://twitter.com/statuses/user_timeline/14946214.atom",
+      "kind": "twitter",
+      "title": "Twitter / shonab",
+      "url": "http://twitter.com/shonab",
+      "last_update": null,
+      "person": 10
+    }
+  },
+  {
+    "pk": 42,
+    "model": "daily_edition.site",
+    "fields": {
+      "feed": "http://identi.ca/shona/rss",
+      "kind": "identica",
+      "title": "shona timeline",
+      "url": "http://identi.ca/shona",
+      "last_update": null,
+      "person": 10
+    }
+  },
+  {
+    "pk": 43,
+    "model": "daily_edition.site",
+    "fields": {
+      "feed": "http://www.ideasuite.com/~shona/weblog/?feed=atom",
+      "kind": "feed",
+      "title": "snowing blizzards",
+      "url": "http://www.ideasuite.com/~shona/weblog",
+      "last_update": null,
+      "person": 10
+    }
+  },
+  {
+    "pk": 44,
+    "model": "daily_edition.site",
+    "fields": {
+      "feed": "http://blogs.cnet.com/8300-13505_1-16.xml",
+      "kind": "feed",
+      "title": null,
+      "url": "http://blogs.cnet.com/8300-13505_1-16.html",
+      "last_update": null,
+      "person": 11
+    }
+  },
+  {
+    "pk": 45,
+    "model": "daily_edition.site",
+    "fields": {
+      "feed": null,
+      "kind": "linkedin",
+      "title": null,
+      "url": "http://www.linkedin.com/in/mattasay",
+      "last_update": null,
+      "person": 11
+    }
+  },
+  {
+    "pk": 46,
+    "model": "daily_edition.site",
+    "fields": {
+      "feed": "http://asay.blogspot.com/feeds/posts/default",
+      "kind": "feed",
+      "title": "AC/OS",
+      "url": "http://asay.blogspot.com/",
+      "last_update": null,
+      "person": 11
+    }
+  },
+  {
+    "pk": 47,
+    "model": "daily_edition.site",
+    "fields": {
+      "feed": "http://twitter.com/statuses/user_timeline/7617702.atom",
+      "kind": "twitter",
+      "title": "Twitter / mjasay",
+      "url": "http://twitter.com/mjasay",
+      "last_update": null,
+      "person": 11
+    }
+  },
+  {
+    "pk": 48,
+    "model": "daily_edition.site",
+    "fields": {
+      "feed": "http://twitter.com/statuses/user_timeline/15771361.atom",
+      "kind": "twitter",
+      "title": "Twitter / asay",
+      "url": "http://twitter.com/asay",
+      "last_update": null,
+      "person": 11
+    }
+  },
+  {
+    "pk": 49,
+    "model": "daily_edition.site",
+    "fields": {
+      "feed": "http://joi.ito.com/atom.xml",
+      "kind": "feed",
+      "title": "Joi Ito's Web",
+      "url": "http://joi.ito.com/weblog/",
+      "last_update": null,
+      "person": 12
+    }
+  },
+  {
+    "pk": 50,
+    "model": "daily_edition.site",
+    "fields": {
+      "feed": "http://api.flickr.com/services/feeds/photos_public.gne?id=35034362831@N01&lang=en-us&format=rss_200",
+      "kind": "flickr",
+      "title": "Uploads from Joi",
+      "url": "http://www.flickr.com/photos/joi/",
+      "last_update": null,
+      "person": 12
+    }
+  },
+  {
+    "pk": 51,
+    "model": "daily_edition.site",
+    "fields": {
+      "feed": "http://twitter.com/statuses/user_timeline/691353.atom",
+      "kind": "twitter",
+      "title": "Twitter / Joi",
+      "url": "http://twitter.com/Joi",
+      "last_update": null,
+      "person": 12
+    }
+  },
+  {
+    "pk": 52,
+    "model": "daily_edition.site",
+    "fields": {
+      "feed": "http://picasaweb.google.com/data/feed/api/user/joiito?kind=photo&thumbsize=64",
+      "kind": "picasa",
+      "title": "joiito",
+      "url": "http://picasaweb.google.com/joiito",
+      "last_update": null,
+      "person": 12
+    }
+  },
+  {
+    "pk": 53,
+    "model": "daily_edition.site",
+    "fields": {
+      "feed": "http://identi.ca/api/statuses/user_timeline/joi.rss",
+      "kind": "identica",
+      "title": "joi timeline",
+      "url": "http://identi.ca/joi",
+      "last_update": null,
+      "person": 12
+    }
+  },
+  {
+    "pk": 54,
+    "model": "daily_edition.site",
+    "fields": {
+      "feed": "http://vimeo.com/user927030/videos/rss",
+      "kind": "vimeo",
+      "title": "Vimeo / Joichi Ito's uploaded videos",
+      "url": "http://vimeo.com/user927030/videos/uploaded",
+      "last_update": null,
+      "person": 12
+    }
+  },
+  {
+    "pk": 55,
+    "model": "daily_edition.site",
+    "fields": {
+      "feed": null,
+      "kind": "linkedin",
+      "title": null,
+      "url": "http://www.linkedin.com/in/joiito",
+      "last_update": null,
+      "person": 12
+    }
+  }
+]

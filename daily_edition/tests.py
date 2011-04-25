@@ -17,7 +17,7 @@ path = lambda *a: os.path.join(ROOT, *a)
 
 def install_sample_data():
     cmd = whoisi_import.Command()
-    cmd.handle(path('sample_data', 'people.json'), verbosity='0')
+    cmd.handle(path('sample_data', 'whoisi_export.json'), verbosity='0')
 
 def test_sites_short_title_works(self):
     """
