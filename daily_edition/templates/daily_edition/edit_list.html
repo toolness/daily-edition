@@ -13,6 +13,7 @@ textarea {
 {% block title %}Edit Your Influencer List{% endblock %}
 {% block header %}Edit Your Influencer List.{% endblock %}
 {% block content %}
+<p>Looking for someone in particular? Try <a href="{% url admin:daily_edition_person_changelist %}">search</a>.</p>
 <form method="POST">
 {% csrf_token %}
 <p>
