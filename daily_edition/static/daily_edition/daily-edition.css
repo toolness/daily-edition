@@ -98,6 +98,10 @@ a:hover {
     color: black;
 }
 
+.article pre, .article code {
+  white-space: pre-wrap;
+}
+
 ul.messages {
   list-style-type: none;
   margin: 0;
