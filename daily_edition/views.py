@@ -13,8 +13,13 @@ from models import Person
 import publish_edition as pedition
 import multiuser
 
+DEFAULT_AUTHORS = 'Christopher Blizzard\nMike Shaver\n'
+
 def get_account(req):
+    default_authors = getattr(settings, 'DAILY_EDITION_DEFAULT_LIST',
+                              DEFAULT_AUTHORS)
     return multiuser.Account(root_dir=settings.DAILY_EDITION_ROOT_DIR,
+                             default_authors=default_authors,
                              user=req.user)
     
 @login_required
