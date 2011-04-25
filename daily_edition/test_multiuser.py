@@ -62,6 +62,12 @@ class MultiuserTests(TestCase):
     def test_authors_dir_is_created(self):
         self._ensure_dir(self.mu.authors_dir, 'authors')
 
+    def test_default_authors_content_is_created(self):
+        u = User(username='blop')
+        mu = multiuser.Account(self.dir, u, default_authors='hi')
+        self.assertEqual(open(mu.authors_filename).read(), 
+                         'hi')
+
     def test_authors_file_is_created(self):
         self.assertEqual(
             self.mu.authors_filename,

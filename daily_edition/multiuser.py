@@ -16,7 +16,7 @@ def backup_file(filename):
     return backup_filename
 
 class Account(object):
-    def __init__(self, root_dir, user):
+    def __init__(self, root_dir, user, default_authors=''):
         if not os.path.exists(root_dir):
             os.mkdir(root_dir)
 
@@ -39,7 +39,9 @@ class Account(object):
                 os.mkdir(dirpath)
 
         if not os.path.exists(self.authors_filename):
-            open(self.authors_filename, 'w').close()
+            f = open(self.authors_filename, 'w')
+            f.write(default_authors)
+            f.close()
 
     def _get_issue_path(self, issue):
         if issue is None:
