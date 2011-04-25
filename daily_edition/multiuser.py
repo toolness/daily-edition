@@ -17,6 +17,9 @@ def backup_file(filename):
 
 class Account(object):
     def __init__(self, root_dir, user):
+        if not os.path.exists(root_dir):
+            os.mkdir(root_dir)
+
         self.root_user_dir = os.path.join(root_dir, user.username)
         self.authors_dir = os.path.join(self.root_user_dir, 'authors')
         self.caches_dir = os.path.join(self.root_user_dir, 'caches')

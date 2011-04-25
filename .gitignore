@@ -1,0 +1,4 @@
+.virtualenv
+daily-edition-data
+database.dat
+*.egg

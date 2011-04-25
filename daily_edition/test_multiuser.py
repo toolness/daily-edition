@@ -28,6 +28,11 @@ class MultiuserTests(TestCase):
         f.write(contents)
         f.close()
 
+    def test_account_makes_root_dir_if_not_exists(self):
+        newdir = os.path.join(self.dir, 'nonexistent')
+        mu2 = multiuser.Account(newdir, self.user)
+        self.assertTrue(os.path.exists(newdir))
+
     def test_has_issue_returns_false(self):
         self.assertFalse(self.mu.has_issue(), False)
         self.assertFalse(self.mu.has_issue(42), False)
