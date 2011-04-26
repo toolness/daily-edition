@@ -1,6 +1,6 @@
 from setuptools import setup
 
-from manage import req_contents
+from dev.bootstrap import install_requires
 
 setup(
     name='daily_edition',
@@ -8,5 +8,5 @@ setup(
     packages=['daily_edition'],
     author='Atul Varma',
     author_email='varmaa@toolness.com',
-    install_requires=req_contents.split()
+    install_requires=install_requires
     )
