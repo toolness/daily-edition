@@ -7,7 +7,7 @@ from datetime import datetime
 class IssueMetadata(object):
     def __init__(self, path):
         self.number = int(re.match(r'.*issue-(\d+)\.json$', path).group(1))
-        self.pub_date = datetime.fromtimestamp(os.stat(path).st_ctime)
+        self.pub_date = datetime.fromtimestamp(os.stat(path).st_mtime)
 
     def __cmp__(self, other):
         return cmp(self.pub_date, other.pub_date)
