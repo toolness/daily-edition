@@ -129,3 +129,12 @@ class LegacyTests(TestCase):
         f = open(os.path.join(self.output_dir, 'daily-edition.json'), 'r')
         actual = publish_edition.json.load(f)
         self.assertDictEqual(expect, actual)
+    
+    def test_get_people_info(self):
+        self.set_authors('Christopher Blizzard', 'blah')
+        i = publish_edition.get_people_info(Person, self.authors_filename)
+        self.assertDictEqual(i[1], {'is_unknown': True, 'name': 'blah',
+                                    'tags': 'unknown'})
+        self.assertEqual(i[0]['info'].name, 'Christopher Blizzard')
+        self.assertFalse(i[0]['is_unknown'], False)
+        self.assertEqual(i[0]['tags'], 'known')

@@ -37,17 +37,7 @@ def edition(req, issue=None):
 @login_required
 def view_list(req):
     acct = get_account(req)
-    matches, names, unknown_names = pedition.get_matching_people(
-        Person,
-        acct.authors_filename
-        )
-    people = []
-    for name in names:
-        if name in unknown_names:
-            people.append(dict(name=name, tags='unknown', is_unknown=True))
-        else:
-            people.append(dict(name=name, tags='known', is_unknown=False,
-                               info=Person.objects.get(name=name)))
+    people = pedition.get_people_info(Person, acct.authors_filename)
     return render_to_response('daily_edition/view_list.html',
                               dict(people=people),
                               context_instance=RequestContext(req))

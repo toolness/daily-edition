@@ -205,6 +205,18 @@ def get_matching_people(people, authors_filename):
 
     return matches, names, unknown_names
 
+def get_people_info(people, authors_filename):
+    matches, names, unknown_names = get_matching_people(people,
+                                                        authors_filename)
+    infos = []
+    for name in names:
+        if name in unknown_names:
+            infos.append(dict(name=name, tags='unknown', is_unknown=True))
+        else:
+            infos.append(dict(name=name, tags='known', is_unknown=False,
+                              info=people.objects.get(name=name)))
+    return infos
+
 def publish_edition(people=None,
                     output_dir='',
                     cache_dir='',
