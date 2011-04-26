@@ -87,7 +87,7 @@ def publish_edition(req):
         t.start()
         return HttpResponseRedirect(req.get_full_path())
 
-    issues = acct.get_issue_history()[:5]
+    issues = acct.get_issue_history()[-5:]
     return render_to_response('daily_edition/publish_edition.html',
                               dict(issues=issues),
                               context_instance=RequestContext(req))
