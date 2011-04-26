@@ -6,7 +6,7 @@
 <p>Recently published issues:</p>
 <ul>
 {% for issue in issues reversed %}
-  <li><a href="{% url view-edition issue.number %}">Issue {{ issue.number }}</a>, published {{ issue.pub_date||date:"SHORT_DATE_FORMAT" }}</li>
+  <li><a href="{% url view-edition issue.number %}">Issue {{ issue.number }}</a>, published {{ issue.pub_date|date:"SHORT_DATE_FORMAT" }}</li>
 {% endfor %}
 </ul>
 {% else %}
