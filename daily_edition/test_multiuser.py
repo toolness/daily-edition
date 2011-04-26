@@ -93,19 +93,23 @@ class MultiuserTests(TestCase):
         self.assertEqual(read_backup(3), 'bar')
 
     def test_get_issue_history(self):
-        def mkissue(n):
+        def mkissue(n, pubdate):
             name = os.path.join(self.mu.issues_dir, 'issue-%d.json' % n)
-            open(name, 'w').close()
+            open(name, 'w').write('{"pubDate": %s}' % repr(pubdate))
         
         self.assertEqual(len(self.mu.get_issue_history()), 0)
-        mkissue(1)
-        mkissue(2)
+        mkissue(1, [2010, 1, 1])
+        mkissue(2, [2010, 1, 2])
         history = self.mu.get_issue_history()
         self.assertEqual(len(history), 2)
         self.assertEqual(history[0].number, 1)
         self.assertTrue(isinstance(history[0].pub_date,
                                    datetime.datetime))
+        self.assertEqual(history[0].pub_date,
+                         datetime.datetime(2010, 1, 1))
         self.assertEqual(history[1].number, 2)
+        self.assertEqual(history[1].pub_date,
+                         datetime.datetime(2010, 1, 2))
 
     def test_publish_edition_works(self):
         kwargs = {}

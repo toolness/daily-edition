@@ -4,13 +4,26 @@ import glob
 import logging
 from datetime import datetime
 
+try:
+    import simplejson as json
+except ImportError:
+    import json
+
 class IssueMetadata(object):
     def __init__(self, path):
         self.number = int(re.match(r'.*issue-(\d+)\.json$', path).group(1))
-        self.pub_date = datetime.fromtimestamp(os.stat(path).st_mtime)
+        self._path = path
+        self._pub_date = None
+
+    @property
+    def pub_date(self):
+        if self._pub_date is None:
+            year, month, day = json.load(open(self._path))['pubDate']
+            self._pub_date = datetime(year, month, day)
+        return self._pub_date
 
     def __cmp__(self, other):
-        return cmp(self.pub_date, other.pub_date)
+        return cmp(self.number, other.number)
 
 def backup_file(filename):
     def mkfilename(i):
