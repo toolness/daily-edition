@@ -8,6 +8,7 @@ Replace this with more appropriate tests for your application.
 import os
 
 from django.test import TestCase
+from django.test.client import Client
 from django.contrib.auth.models import User
 from daily_edition.models import Person, Alias, Site, OrderedFollow
 from daily_edition.management.commands import whoisi_import
@@ -19,7 +20,17 @@ def install_sample_data():
     cmd = whoisi_import.Command()
     cmd.handle(path('sample_data', 'whoisi_export.json'), verbosity='0')
 
-def test_sites_short_title_works(self):
+def test_index_redirects_to_login():
+    """
+    >>> c = Client()
+    >>> response = c.get('/', follow=True)
+    >>> response.redirect_chain
+    [('http://testserver/accounts/login/?next=/', 302)]
+    """
+    
+    pass
+
+def test_sites_short_title_works():
     """
     >>> install_sample_data()
     >>> p = Person.objects.get(name='Christopher Blizzard')
