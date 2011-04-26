@@ -299,8 +299,10 @@ def publish_edition(people=None,
         save(issues, cachepath(ISSUES_FILENAME))
 
     if not dry_run:
+        published_authors = [name for name in names
+                             if name in filtered_articles]
         blob = {'id': issue_id,
-                'authors': names,
+                'authors': published_authors,
                 'articles': filtered_articles,
                 'pubDate': to_date_tuple(date.today())}
 

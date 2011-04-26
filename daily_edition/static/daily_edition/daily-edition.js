@@ -26,6 +26,13 @@ function showContent(info) {
   $("#issue-no").text(info.id + 1);
   $("#pub-date").text(info.pubDate.join("."));
 
+  if (info.authors.length == 0) {
+    var div = $('<div class="article"><div class="content">' +
+                'There\'s no news to report right now.' +
+                '</div></div>');
+    $("#articles").append(div);
+  }
+
   info.authors.forEach(
     function(author) {
       if (author in info.articles)

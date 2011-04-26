@@ -98,6 +98,7 @@ class LegacyTests(TestCase):
             )
 
     def test_publish_edition_works(self):
+        self.maxDiff = None
         self.set_authors('Christopher Blizzard', 'Mike Shaver')
         self.publish_edition(update_urls=True, min_article_word_count=1)
         
