@@ -9,5 +9,6 @@ urlpatterns = patterns('',
         name='view-list'),
     url(r'^issue/latest/$', 'daily_edition.views.edition',
         name='latest-edition'),
-    url(r'^issue/(?P<issue>\d+)/$', 'daily_edition.views.edition'),
+    url(r'^issue/(?P<issue>\d+)/$', 'daily_edition.views.edition',
+        name='view-edition'),
 )

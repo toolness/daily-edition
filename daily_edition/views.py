@@ -66,8 +66,8 @@ def edit_list(req):
 
 @login_required
 def publish_edition(req):
+    acct = get_account(req)
     if req.method == 'POST':
-        acct = get_account(req)
         options = dict(people=Person, update_urls=False)
         if 'refresh-feeds' in req.POST:
             options.update(dict(update_urls=True))
@@ -87,6 +87,7 @@ def publish_edition(req):
         t.start()
         return HttpResponseRedirect(req.get_full_path())
 
+    issues = acct.get_issue_history()[:5]
     return render_to_response('daily_edition/publish_edition.html',
-                              {},
+                              dict(issues=issues),
                               context_instance=RequestContext(req))

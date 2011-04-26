@@ -2,6 +2,18 @@
 {% block title %}Publish A New Daily Edition{% endblock %}
 {% block header %}Publish A New Daily Edition.{% endblock %}
 {% block content %}
+{% if issues %}
+<p>Recently published issues:</p>
+<ul>
+{% for issue in issues reversed %}
+  <li><a href="{% url view-edition issue.number %}">Issue {{ issue.number }}</a>, published {{ issue.pub_date|timesince }} ago</li>
+{% endfor %}
+</ul>
+{% else %}
+<p>No issues are ready for viewing yet.</p>
+{% endif %}
+<p>If you recently started the presses, you may need to reload this page in a few moments to see the published issue listed above.</p>
+<p>You can use the form below to start the presses.</p>
 <form method="POST">
 {% csrf_token %}
 <p>
