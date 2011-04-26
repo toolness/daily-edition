@@ -31,10 +31,13 @@ more awesome, or making your own.
 
 ## Quick Start
 
-You'll need Python 2.5 or above. The few remaining dependencies are installed for you in a virtual environment.
+You'll need git and Python 2.5 or above. The few remaining dependencies are
+installed for you in a virtual environment.
 
 At your shell prompt, run:
 
+    $ git clone https://toolness@github.com/toolness/daily-edition.git
+    $ cd daily-edition
     $ python manage.py bootstrap
     $ python manage.py syncdb
     $ python manage.py loaddata people
@@ -52,4 +55,5 @@ This website is a Django app. If you want to run it on a production server,
 you'll probably want to run `setup.py install` and either add the app to an
 existing Django site or use the sample one in the `dev` directory as a basis
 for a new site. See `dev/settings.py` for information on specific settings
-that the app uses.
+that the app uses, and run `manage.py test daily_edition` to make sure that
+the app integrates properly with your setup.
