@@ -1,5 +1,16 @@
 import os
+import re
+import glob
 import logging
+from datetime import datetime
+
+class IssueMetadata(object):
+    def __init__(self, path):
+        self.number = int(re.match(r'.*issue-(\d+)\.json$', path).group(1))
+        self.pub_date = datetime.fromtimestamp(os.stat(path).st_ctime)
+
+    def __cmp__(self, other):
+        return cmp(self.pub_date, other.pub_date)
 
 def backup_file(filename):
     def mkfilename(i):
@@ -55,6 +66,13 @@ class Account(object):
 
     def get_issue_json(self, issue=None):
         return open(self._get_issue_path(issue)).read()
+
+    def get_issue_history(self):
+        globber = os.path.join(self.issues_dir, 'issue-*.json')
+        issues = [IssueMetadata(issue)
+                  for issue in glob.glob(globber)]
+        issues.sort()
+        return issues
 
     def set_authors(self, contents):
         backup_file(self.authors_filename)

@@ -1,5 +1,6 @@
 import os
 import tempfile
+import datetime
 from distutils.dir_util import remove_tree
 
 from django.test import TestCase
@@ -90,6 +91,21 @@ class MultiuserTests(TestCase):
         self.assertEqual(read_backup(1), '')
         self.assertEqual(read_backup(2), 'foo')
         self.assertEqual(read_backup(3), 'bar')
+
+    def test_get_issue_history(self):
+        def mkissue(n):
+            name = os.path.join(self.mu.issues_dir, 'issue-%d.json' % n)
+            open(name, 'w').close()
+        
+        self.assertEqual(len(self.mu.get_issue_history()), 0)
+        mkissue(1)
+        mkissue(2)
+        history = self.mu.get_issue_history()
+        self.assertEqual(len(history), 2)
+        self.assertEqual(history[0].number, 1)
+        self.assertTrue(isinstance(history[0].pub_date,
+                                   datetime.datetime))
+        self.assertEqual(history[1].number, 2)
 
     def test_publish_edition_works(self):
         kwargs = {}
