@@ -51,3 +51,20 @@ existing Django site or use the sample one in the `dev` directory as a basis
 for a new site. See `dev/settings.py` for information on specific settings
 that the app uses, and run `manage.py test daily_edition` to make sure that
 the app integrates properly with your setup.
+
+## Limitations
+
+This app was originally implemented in early 2010 as a command-line utility
+that used Christopher Blizzard's [whoisi][] as a repository for influencer
+identity information. Since then, whoisi.com has been shut down and the
+command-line utility has been turned into a multi-user Django app, which means
+a few things:
+
+* The back-end implementation doesn't scale well at all. At best, each
+  deployment of The Daily Edition can probably only be used to serve a handful
+  of people, rather than hundreds or millions.
+
+* Adding or changing information about influencers can only be done via the
+  Django admin interface.
+
+  [whoisi]: http://www.0xdeadbeef.com/weblog/2008/06/announcing-whoisi/
