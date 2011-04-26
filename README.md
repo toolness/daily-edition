@@ -30,7 +30,7 @@ installed for you in a virtual environment.
 
 At your shell prompt, run:
 
-    $ git clone https://toolness@github.com/toolness/daily-edition.git
+    $ git clone git://github.com/toolness/daily-edition.git
     $ cd daily-edition
     $ python manage.py bootstrap
     $ python manage.py syncdb
