@@ -111,6 +111,16 @@ class MultiuserTests(TestCase):
         self.assertEqual(history[1].pub_date,
                          datetime.datetime(2010, 1, 2))
 
+    def test_publish_edition_is_synchronized(self):
+        filename = os.path.join(self.mu.root_user_dir, 'locked.lck')
+
+        def publish_edition(**passed_kwargs):
+            self.assertTrue(os.path.exists(filename))
+            
+        self.assertFalse(os.path.exists(filename))
+        self.mu.publish_edition(publish_edition=publish_edition)
+        self.assertFalse(os.path.exists(filename))
+
     def test_publish_edition_works(self):
         kwargs = {}
         

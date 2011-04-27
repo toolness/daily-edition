@@ -1,6 +1,7 @@
 import os
 import re
 import glob
+import fcntl
 import logging
 from datetime import datetime
 
@@ -8,6 +9,19 @@ try:
     import simplejson as json
 except ImportError:
     import json
+
+def synchronized(func):
+    def wrapper(self, *args, **kwargs):
+        try:
+            filename = os.path.join(self.root_user_dir, 'locked.lck')
+            lockfile = open(filename, 'a+')
+            fcntl.flock(lockfile, fcntl.LOCK_EX)
+            return func(self, *args, **kwargs)
+        finally:
+            fcntl.flock(lockfile, fcntl.LOCK_UN)
+            lockfile.close()
+            os.remove(filename)
+    return wrapper
 
 class IssueMetadata(object):
     def __init__(self, path):
@@ -87,10 +101,12 @@ class Account(object):
         issues.sort()
         return issues
 
+    @synchronized
     def set_authors(self, contents):
         backup_file(self.authors_filename)
         open(self.authors_filename, 'w').write(contents)
 
+    @synchronized
     def publish_edition(self, publish_edition, **kwargs):
         publish_edition(
             output_dir=self.issues_dir,
