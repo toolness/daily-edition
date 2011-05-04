@@ -37,6 +37,7 @@ def bootstrap(main):
         
         subprocess.check_call([sys.executable, path('virtualenv.py'),
                                vdir])
+        sys.exit(0)
 
     if os.path.exists(vdir):
         # The user has previously bootstrapped, so use the virtual
