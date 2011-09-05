@@ -22,6 +22,19 @@ sys.path[:0] = new_sys_path
 
 from django.core.management import execute_manager, setup_environ
 
+try:
+    import settings_local as settings
+except ImportError:
+    try:
+        import settings
+    except ImportError:
+        import sys
+        sys.stderr.write(
+            "Error: Tried importing 'settings_local.py' and 'settings.py' "
+            "but neither could be found (or they're throwing an ImportError)."
+            " Please come back and try again later.")
+        raise
+
 import settings
 
 # If we want to use django settings anywhere, we need to set up the required
