@@ -7,10 +7,7 @@ import cPickle as pickle
 from threading import Thread
 from datetime import date, datetime, timedelta
 
-try:
-    import json
-except ImportError:
-    import simplejson as json
+import django.utils.simplejson as json
 
 import feedparser
 from url_cache import UrlCache

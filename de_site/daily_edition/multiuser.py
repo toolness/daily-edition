@@ -5,10 +5,7 @@ import fcntl
 import logging
 from datetime import datetime
 
-try:
-    import simplejson as json
-except ImportError:
-    import json
+import django.utils.simplejson as json
 
 def synchronized(func):
     def wrapper(self, *args, **kwargs):
