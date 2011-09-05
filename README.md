@@ -45,9 +45,12 @@ using the app.
 
 This website is a Django app.
 
-See `de_site/settings.py` for information on specific settings
-that the app uses, and run `manage.py test daily_edition` to make sure that
+Copy `de_site/settings_local.sample.py` to `de_site/settings_local.py` 
+and edit as necessary. Run `manage.py test daily_edition` to make sure that
 the app integrates properly with your setup.
+
+See `fabfile.py`, a [Fabric][] script, for more context on what's needed
+to deploy the app.
 
 ## Limitations
 
@@ -65,3 +68,4 @@ a few things:
   Django admin interface.
 
   [whoisi]: http://www.0xdeadbeef.com/weblog/2008/06/announcing-whoisi/
+  [Fabric]: http://www.fabfile.org
