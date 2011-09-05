@@ -35,8 +35,6 @@ except ImportError:
             " Please come back and try again later.")
         raise
 
-import settings
-
 # If we want to use django settings anywhere, we need to set up the required
 # environment variables.
 setup_environ(settings)
