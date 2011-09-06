@@ -17,3 +17,6 @@ class Command(BaseCommand):
             a.publish_edition(pedition.publish_edition,
                               people=Person,
                               update_only=True)
+        if options['verbosity'] != '0':
+            print
+            print "Done."
