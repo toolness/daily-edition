@@ -219,9 +219,12 @@ def publish_edition(people=None,
                     cache_dir='',
                     update_urls=False,
                     update_articles=False,
+                    update_only=False,
                     authors_filename=AUTHORS_FILENAME,
                     min_article_word_count=50,
                     dry_run=False):
+    if update_only:
+        update_urls = True
     if update_urls:
         update_articles = True
 
@@ -276,6 +279,9 @@ def publish_edition(people=None,
                          urls=urls)
         if not dry_run:
             save(articles, cachepath(ARTICLES_FILENAME))
+
+    if update_only:
+        return
 
     issues = load(cachepath(ISSUES_FILENAME), {'urls': {},
                                                'pub_dates': []})

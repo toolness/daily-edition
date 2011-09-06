@@ -1,6 +1,6 @@
-import json
 import sys
 
+import django.utils.simplejson as json
 from django.core.management.base import BaseCommand, CommandError
 from daily_edition.models import Person, Site, Alias
 

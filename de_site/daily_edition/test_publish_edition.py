@@ -97,6 +97,16 @@ class LegacyTests(TestCase):
             **kwargs
             )
 
+    def test_update_only_works(self):
+        self.set_authors('Christopher Blizzard', 'Mike Shaver')
+        self.publish_edition(update_only=True)
+        self.assertEqual(os.listdir(self.output_dir),
+                         [],
+                         "no issues are created")
+        self.assertEqual(os.listdir(self.cache_dir),
+                         ['articles.dat', 'url_cache.dat'],
+                         "articles and url cache are created")
+
     def test_publish_edition_works(self):
         self.maxDiff = None
         self.set_authors('Christopher Blizzard', 'Mike Shaver')
