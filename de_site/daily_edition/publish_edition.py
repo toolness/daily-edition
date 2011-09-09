@@ -56,7 +56,7 @@ def refresh_urls(feeds, urls):
     queue = Queue.Queue()
     for i in range(NUM_WORKER_THREADS):
         t = Thread(target=worker)
-        t.daemon = True
+        t.setDaemon(True)
         t.start()
     
     ucache = UrlCache(urls)
