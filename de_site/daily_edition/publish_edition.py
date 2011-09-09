@@ -39,7 +39,10 @@ def to_date_tuple(dt):
 def refresh_urls(feeds, urls):
     def worker():
         while True:
-            url = queue.get()
+            try:
+                url = queue.get(True, 0.1)
+            except Queue.Empty:
+                return
             try:
                 ucache.refresh(url, stdout)
             except Exception, e:
@@ -54,15 +57,15 @@ def refresh_urls(feeds, urls):
     NUM_WORKER_THREADS = 5
 
     queue = Queue.Queue()
-    for i in range(NUM_WORKER_THREADS):
-        t = Thread(target=worker)
-        t.setDaemon(True)
-        t.start()
     
     ucache = UrlCache(urls)
     for feed_urls in feeds.values():
         for url in feed_urls:
             queue.put(url)
+
+    for i in range(NUM_WORKER_THREADS):
+        t = Thread(target=worker)
+        t.start()
 
     queue.join()
 
