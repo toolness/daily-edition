@@ -12,12 +12,8 @@
 {% else %}
 <p>No issues are ready for viewing yet.</p>
 {% endif %}
-<p>You can use the form below to start the presses.</p>
 <form method="POST">
 {% csrf_token %}
-<p>
-<input type="checkbox" name="refresh-feeds"/>Refresh Feeds</input>
-</p>
 <input type="submit" value="Publish New Daily Edition"/>
 </form>
 {% endblock %}

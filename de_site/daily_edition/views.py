@@ -58,26 +58,9 @@ def edit_list(req):
 def publish_edition(req):
     acct = get_account(req)
     if req.method == 'POST':
-        options = dict(people=Person, update_urls=False)
-
-        def publish():
-            acct.publish_edition(pedition.publish_edition, **options)
-
-        if 'refresh-feeds' in req.POST:
-            options.update(dict(update_urls=True))
-            t = threading.Thread(target=publish)
-            t.start()
-            messages.add_message(
-                req,
-                messages.INFO,
-                ('Starting the presses. This may take a while, '
-                 'since feeds are being refreshed. Keep reloading '
-                 'the page until you see your new issue listed.')
-                )
-        else:
-            publish()
-            messages.add_message(req, messages.INFO, 'Issue published!')
-
+        acct.publish_edition(pedition.publish_edition,
+                             people=Person, update_urls=False)
+        messages.add_message(req, messages.INFO, 'Issue published!')
         return HttpResponseRedirect(req.get_full_path())
 
     issues = acct.get_issue_history()[-5:]
