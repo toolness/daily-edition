@@ -9,6 +9,7 @@ from django.http import HttpResponseNotFound, HttpResponseRedirect
 from django.shortcuts import redirect
 from django.conf import settings
 from django.contrib import messages
+from django.core.urlresolvers import reverse
 from models import Person
 import publish_edition as pedition
 import multiuser
@@ -60,8 +61,10 @@ def publish_edition(req):
     if req.method == 'POST':
         acct.publish_edition(pedition.publish_edition,
                              people=Person, update_urls=False)
+        latest_issue = acct.get_issue_history()[-1].number
+        issue_url = reverse('view-edition', args=[latest_issue])
         messages.add_message(req, messages.INFO, 'Issue published!')
-        return HttpResponseRedirect(req.get_full_path())
+        return HttpResponseRedirect(issue_url)
 
     issues = acct.get_issue_history()[-5:]
     return render_to_response('daily_edition/publish_edition.html',
